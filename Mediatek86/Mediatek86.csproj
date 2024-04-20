@@ -33,6 +33,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="MySql.Data, Version=8.0.29.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\..\..\Program Files (x86)\MySQL\MySQL Connector Net 8.0.29\Assemblies\v4.5.2\MySql.Data.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -46,28 +50,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Vue\Accueil.cs">
+    <Compile Include="bddmanager\BddManager.cs" />
+    <Compile Include="controller\AbsenceController.cs" />
+    <Compile Include="controller\PersonnelController.cs" />
+    <Compile Include="dal\Access.cs" />
+    <Compile Include="modele\Absence.cs" />
+    <Compile Include="modele\Personnel.cs" />
+    <Compile Include="vue\Accueil.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vue\Accueil.Designer.cs">
+    <Compile Include="vue\Accueil.Designer.cs">
       <DependentUpon>Accueil.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vue\AjouterPersonnel.cs">
+    <Compile Include="vue\AjouterPersonnel.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vue\AjouterPersonnel.Designer.cs">
+    <Compile Include="vue\AjouterPersonnel.Designer.cs">
       <DependentUpon>AjouterPersonnel.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vue\AjouterAbsence.cs">
+    <Compile Include="vue\AjouterAbsence.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vue\AjouterAbsence.Designer.cs">
+    <Compile Include="vue\AjouterAbsence.Designer.cs">
       <DependentUpon>AjouterAbsence.cs</DependentUpon>
     </Compile>
-    <Compile Include="Vue\Login.cs">
+    <Compile Include="vue\Login.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Vue\Login.Designer.cs">
+    <Compile Include="vue\Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
@@ -81,16 +91,16 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <EmbeddedResource Include="Vue\Accueil.resx">
+    <EmbeddedResource Include="vue\Accueil.resx">
       <DependentUpon>Accueil.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vue\AjouterAbsence.resx">
+    <EmbeddedResource Include="vue\AjouterAbsence.resx">
       <DependentUpon>AjouterAbsence.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vue\AjouterPersonnel.resx">
+    <EmbeddedResource Include="vue\AjouterPersonnel.resx">
       <DependentUpon>AjouterPersonnel.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Vue\Login.resx">
+    <EmbeddedResource Include="vue\Login.resx">
       <DependentUpon>Login.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
@@ -106,9 +116,6 @@
   <ItemGroup>
     <None Include="App.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Controller\" />
-    <Folder Include="Modele\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
