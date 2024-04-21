@@ -1,12 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
+﻿using Mediatek86.dal;
+using Mediatek86.controller;
+using System;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+
 using System.Windows.Forms;
+
 
 namespace Mediatek86
 {
@@ -15,9 +13,13 @@ namespace Mediatek86
         private bool dragging = false;
         private Point dragCursorPoint;
         private Point dragFormPoint;
+        FormAuthController formAuthController = new FormAuthController();
+
         public Login()
         {
             InitializeComponent();
+            
+            //Redéfinit la taille des textBox
             this.usernameTxt.AutoSize = false;
             this.usernameTxt.Size = new System.Drawing.Size(209, 27);
             this.passwordTxt.AutoSize = false;
@@ -43,6 +45,38 @@ namespace Mediatek86
         private void Login_MouseUp(object sender, MouseEventArgs e)
         {
             dragging = false;
+        }
+
+        private void connexionBtn_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                // Vérifie si les champs de nom d'utilisateur et de mot de passe sont remplis
+                if (usernameTxt.Text != "" && passwordTxt.Text != "")
+                {
+                    // Vérifie les informations d'identification en utilisant le FormAuthController
+                    bool authIsValid = formAuthController.CheckCredentials(usernameTxt.Text, passwordTxt.Text);
+
+                    // Si les informations d'identification sont valides, affiche un message de succès
+                    if (authIsValid)
+                    {
+                        MessageBox.Show("Connexion à la base de données établie !", "Succès", MessageBoxButtons.OK);
+                    }
+                    else
+                    {
+                        MessageBox.Show("Les identifiants sont incorrects !");
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Veuillez remplir tous les champs !");
+                }
+            }
+            catch (Exception ex)
+            {
+                // En cas d'erreur, affiche un message d'erreur à l'utilisateur
+                MessageBox.Show($"Erreur lors de la connexion à la base de données : {ex.Message}", "Erreur", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }

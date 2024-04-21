@@ -72,7 +72,7 @@ namespace Mediatek86.bddmanager
         /// Execution d'une requête de type LID (select)
         /// </summary>
         /// <param name="stringQuery">requête</param>
-        /// <param name="parameters">dictoinnaire contenant les parametres</param>
+        /// <param name="parameters">dictionnaire contenant les parametres</param>
         /// <returns>liste de tableaux d'objets contenant les valeurs des colonnes</returns>
         public List<Object[]> ReqSelect(string stringQuery, Dictionary<string, object> parameters = null)
         {

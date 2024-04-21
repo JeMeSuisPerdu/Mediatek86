@@ -41,7 +41,7 @@
             this.usernameLbl.AutoSize = true;
             this.usernameLbl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.usernameLbl.ForeColor = System.Drawing.Color.Snow;
-            this.usernameLbl.Location = new System.Drawing.Point(52, 149);
+            this.usernameLbl.Location = new System.Drawing.Point(50, 148);
             this.usernameLbl.Name = "usernameLbl";
             this.usernameLbl.Size = new System.Drawing.Size(131, 21);
             this.usernameLbl.TabIndex = 0;
@@ -52,7 +52,7 @@
             this.passwordLbl.AutoSize = true;
             this.passwordLbl.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.passwordLbl.ForeColor = System.Drawing.Color.Snow;
-            this.passwordLbl.Location = new System.Drawing.Point(52, 253);
+            this.passwordLbl.Location = new System.Drawing.Point(50, 252);
             this.passwordLbl.Name = "passwordLbl";
             this.passwordLbl.Size = new System.Drawing.Size(102, 21);
             this.passwordLbl.TabIndex = 1;
@@ -60,36 +60,38 @@
             // 
             // usernameTxt
             // 
-            this.usernameTxt.Location = new System.Drawing.Point(56, 189);
+            this.usernameTxt.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.usernameTxt.Location = new System.Drawing.Point(54, 188);
             this.usernameTxt.Name = "usernameTxt";
-            this.usernameTxt.Size = new System.Drawing.Size(209, 20);
+            this.usernameTxt.Size = new System.Drawing.Size(209, 27);
             this.usernameTxt.TabIndex = 2;
             // 
             // passwordTxt
             // 
-            this.passwordTxt.Location = new System.Drawing.Point(56, 292);
+            this.passwordTxt.Font = new System.Drawing.Font("Segoe UI", 11.25F);
+            this.passwordTxt.Location = new System.Drawing.Point(54, 291);
             this.passwordTxt.Margin = new System.Windows.Forms.Padding(6);
-            this.passwordTxt.Multiline = true;
             this.passwordTxt.Name = "passwordTxt";
-            this.passwordTxt.Size = new System.Drawing.Size(209, 20);
+            this.passwordTxt.Size = new System.Drawing.Size(209, 27);
             this.passwordTxt.TabIndex = 3;
             // 
             // connexionBtn
             // 
             this.connexionBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 12.25F, System.Drawing.FontStyle.Bold);
-            this.connexionBtn.Location = new System.Drawing.Point(83, 376);
+            this.connexionBtn.Location = new System.Drawing.Point(83, 361);
             this.connexionBtn.Name = "connexionBtn";
-            this.connexionBtn.Size = new System.Drawing.Size(141, 38);
+            this.connexionBtn.Size = new System.Drawing.Size(141, 40);
             this.connexionBtn.TabIndex = 4;
             this.connexionBtn.Text = "Connexion";
             this.connexionBtn.UseVisualStyleBackColor = true;
+            this.connexionBtn.Click += new System.EventHandler(this.connexionBtn_Click);
             // 
             // titleLbl
             // 
             this.titleLbl.AutoSize = true;
             this.titleLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.titleLbl.ForeColor = System.Drawing.Color.Snow;
-            this.titleLbl.Location = new System.Drawing.Point(63, 69);
+            this.titleLbl.Location = new System.Drawing.Point(70, 70);
             this.titleLbl.Name = "titleLbl";
             this.titleLbl.Size = new System.Drawing.Size(193, 25);
             this.titleLbl.TabIndex = 5;
@@ -100,7 +102,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(78)))), ((int)(((byte)(146)))));
-            this.ClientSize = new System.Drawing.Size(323, 489);
+            this.ClientSize = new System.Drawing.Size(321, 477);
             this.Controls.Add(this.titleLbl);
             this.Controls.Add(this.connexionBtn);
             this.Controls.Add(this.passwordTxt);

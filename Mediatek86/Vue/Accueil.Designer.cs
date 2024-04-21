@@ -28,8 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.personnelLst = new System.Windows.Forms.ListBox();
-            this.absenceLst = new System.Windows.Forms.ListBox();
             this.ajouterPersonnelBtn = new System.Windows.Forms.Button();
             this.supprimerPersonnelBtn = new System.Windows.Forms.Button();
             this.gestionnaireAbsBtn = new System.Windows.Forms.Button();
@@ -60,23 +58,11 @@
             this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
+            this.personnelGrid = new System.Windows.Forms.DataGridView();
+            this.absenceGrid = new System.Windows.Forms.DataGridView();
+            ((System.ComponentModel.ISupportInitialize)(this.personnelGrid)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.absenceGrid)).BeginInit();
             this.SuspendLayout();
-            // 
-            // personnelLst
-            // 
-            this.personnelLst.FormattingEnabled = true;
-            this.personnelLst.Location = new System.Drawing.Point(29, 27);
-            this.personnelLst.Name = "personnelLst";
-            this.personnelLst.Size = new System.Drawing.Size(528, 238);
-            this.personnelLst.TabIndex = 0;
-            // 
-            // absenceLst
-            // 
-            this.absenceLst.FormattingEnabled = true;
-            this.absenceLst.Location = new System.Drawing.Point(621, 27);
-            this.absenceLst.Name = "absenceLst";
-            this.absenceLst.Size = new System.Drawing.Size(528, 238);
-            this.absenceLst.TabIndex = 1;
             // 
             // ajouterPersonnelBtn
             // 
@@ -409,12 +395,30 @@
             this.dateTimePicker3.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker3.TabIndex = 34;
             // 
+            // personnelGrid
+            // 
+            this.personnelGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.personnelGrid.Location = new System.Drawing.Point(29, 27);
+            this.personnelGrid.Name = "personnelGrid";
+            this.personnelGrid.Size = new System.Drawing.Size(528, 238);
+            this.personnelGrid.TabIndex = 35;
+            // 
+            // absenceGrid
+            // 
+            this.absenceGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.absenceGrid.Location = new System.Drawing.Point(621, 27);
+            this.absenceGrid.Name = "absenceGrid";
+            this.absenceGrid.Size = new System.Drawing.Size(528, 238);
+            this.absenceGrid.TabIndex = 36;
+            // 
             // Accueil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(78)))), ((int)(((byte)(146)))));
             this.ClientSize = new System.Drawing.Size(1177, 681);
+            this.Controls.Add(this.absenceGrid);
+            this.Controls.Add(this.personnelGrid);
             this.Controls.Add(this.dateTimePicker3);
             this.Controls.Add(this.dateTimePicker2);
             this.Controls.Add(this.dateTimePicker1);
@@ -445,21 +449,18 @@
             this.Controls.Add(this.gestionnaireAbsBtn);
             this.Controls.Add(this.supprimerPersonnelBtn);
             this.Controls.Add(this.ajouterPersonnelBtn);
-            this.Controls.Add(this.absenceLst);
-            this.Controls.Add(this.personnelLst);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
             this.Name = "Accueil";
             this.Text = "Accueil";
             this.Load += new System.EventHandler(this.Accueil_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.personnelGrid)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.absenceGrid)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.ListBox personnelLst;
-        private System.Windows.Forms.ListBox absenceLst;
         private System.Windows.Forms.Button ajouterPersonnelBtn;
         private System.Windows.Forms.Button supprimerPersonnelBtn;
         private System.Windows.Forms.Button gestionnaireAbsBtn;
@@ -490,5 +491,7 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker1;
         private System.Windows.Forms.DateTimePicker dateTimePicker2;
         private System.Windows.Forms.DateTimePicker dateTimePicker3;
+        private System.Windows.Forms.DataGridView personnelGrid;
+        private System.Windows.Forms.DataGridView absenceGrid;
     }
 }

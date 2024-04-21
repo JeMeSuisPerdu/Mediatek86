@@ -77,7 +77,7 @@
             this.motifAbsLbl.AutoSize = true;
             this.motifAbsLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 12F, System.Drawing.FontStyle.Bold);
             this.motifAbsLbl.ForeColor = System.Drawing.Color.White;
-            this.motifAbsLbl.Location = new System.Drawing.Point(621, 103);
+            this.motifAbsLbl.Location = new System.Drawing.Point(627, 74);
             this.motifAbsLbl.Name = "motifAbsLbl";
             this.motifAbsLbl.Size = new System.Drawing.Size(136, 21);
             this.motifAbsLbl.TabIndex = 3;
@@ -102,9 +102,9 @@
             // motifAbsLst
             // 
             this.motifAbsLst.FormattingEnabled = true;
-            this.motifAbsLst.Location = new System.Drawing.Point(558, 146);
+            this.motifAbsLst.Location = new System.Drawing.Point(564, 117);
             this.motifAbsLst.Name = "motifAbsLst";
-            this.motifAbsLst.Size = new System.Drawing.Size(251, 277);
+            this.motifAbsLst.Size = new System.Drawing.Size(246, 212);
             this.motifAbsLst.TabIndex = 6;
             // 
             // AjouterAbsBtn
