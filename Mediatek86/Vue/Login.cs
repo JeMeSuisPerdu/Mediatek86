@@ -13,6 +13,8 @@ namespace Mediatek86
         private bool dragging = false;
         private Point dragCursorPoint;
         private Point dragFormPoint;
+
+        //Instance du controller qui gère l'authentification
         FormAuthController formAuthController = new FormAuthController();
 
         public Login()

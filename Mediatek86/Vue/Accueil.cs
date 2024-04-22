@@ -7,11 +7,40 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Mediatek86.controller;
 
 namespace Mediatek86.Vue
 {
     public partial class Accueil : Form
     {
+        //instance de PersonnelController
+        PersonnelController personnelGridLoading = new PersonnelController();
+
+        //Petite methode pour redefinir la width des column...Ouais...j'ai vraiment fais ca...
+        public void dataGridColumnsResizing(DataGridView gridName, string sizesString, char separator)
+        {
+            // sépare la chaîne des tailles en utilisant un séparateur 
+            string[] sizesArray = sizesString.Split(separator);
+
+            // Vérifie que le nb de tailles est égale au nb de colonnes dans la DataGridView
+            if (gridName.Columns.Count != sizesArray.Length)
+            {
+                throw new ArgumentException("Le nombre de tailles doit correspondre au nombre de colonnes dans la DataGridView.");
+            }
+
+            // Boucle qui redimensionne les colonnes 
+            for (int i = 0; i < sizesArray.Length; i++)
+            {
+                // convertit la string en int
+                int size;
+                if (!int.TryParse(sizesArray[i], out size))
+                {
+                    Console.WriteLine("La chaîne de tailles n'est pas au format correct.");
+                }
+                gridName.Columns[i].Width = size;
+            }
+        }
+
         public Accueil()
         {
             InitializeComponent();
@@ -19,11 +48,11 @@ namespace Mediatek86.Vue
 
         private void Accueil_Load(object sender, EventArgs e)
         {
+            //utilisation de PersonnelGridData pour remplir le dataGridView
+            personnelGridLoading.PersonnelGridData(personnelGrid);
 
-        }
-
-        private void dateTimePicker2_ValueChanged(object sender, EventArgs e)
-        {
+            //redisign des tailles des grid grâce dataGridColumnsResizing
+            dataGridColumnsResizing(personnelGrid, "72-80-81-80-168-57", '-');
 
         }
     }

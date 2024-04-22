@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ajouterPersonnelBtn = new System.Windows.Forms.Button();
             this.supprimerPersonnelBtn = new System.Windows.Forms.Button();
             this.gestionnaireAbsBtn = new System.Windows.Forms.Button();
@@ -98,7 +100,7 @@
             this.gestionnaireAbsBtn.FlatAppearance.BorderSize = 0;
             this.gestionnaireAbsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.gestionnaireAbsBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gestionnaireAbsBtn.Location = new System.Drawing.Point(409, 300);
+            this.gestionnaireAbsBtn.Location = new System.Drawing.Point(465, 300);
             this.gestionnaireAbsBtn.Name = "gestionnaireAbsBtn";
             this.gestionnaireAbsBtn.Size = new System.Drawing.Size(148, 33);
             this.gestionnaireAbsBtn.TabIndex = 5;
@@ -126,7 +128,7 @@
             this.AjouterAbsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AjouterAbsBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.AjouterAbsBtn.ForeColor = System.Drawing.Color.White;
-            this.AjouterAbsBtn.Location = new System.Drawing.Point(621, 300);
+            this.AjouterAbsBtn.Location = new System.Drawing.Point(695, 300);
             this.AjouterAbsBtn.Name = "AjouterAbsBtn";
             this.AjouterAbsBtn.Size = new System.Drawing.Size(86, 33);
             this.AjouterAbsBtn.TabIndex = 7;
@@ -140,7 +142,7 @@
             this.supprimerAbsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.supprimerAbsBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.supprimerAbsBtn.ForeColor = System.Drawing.Color.White;
-            this.supprimerAbsBtn.Location = new System.Drawing.Point(729, 300);
+            this.supprimerAbsBtn.Location = new System.Drawing.Point(803, 300);
             this.supprimerAbsBtn.Name = "supprimerAbsBtn";
             this.supprimerAbsBtn.Size = new System.Drawing.Size(80, 33);
             this.supprimerAbsBtn.TabIndex = 8;
@@ -154,7 +156,7 @@
             this.modifierAbsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.modifierAbsBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.modifierAbsBtn.ForeColor = System.Drawing.Color.White;
-            this.modifierAbsBtn.Location = new System.Drawing.Point(832, 300);
+            this.modifierAbsBtn.Location = new System.Drawing.Point(906, 300);
             this.modifierAbsBtn.Name = "modifierAbsBtn";
             this.modifierAbsBtn.Size = new System.Drawing.Size(86, 33);
             this.modifierAbsBtn.TabIndex = 9;
@@ -177,7 +179,7 @@
             this.absenceLbl.AutoSize = true;
             this.absenceLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.absenceLbl.ForeColor = System.Drawing.Color.White;
-            this.absenceLbl.Location = new System.Drawing.Point(618, 9);
+            this.absenceLbl.Location = new System.Drawing.Point(692, 9);
             this.absenceLbl.Name = "absenceLbl";
             this.absenceLbl.Size = new System.Drawing.Size(84, 13);
             this.absenceLbl.TabIndex = 11;
@@ -188,7 +190,7 @@
             this.dateDebutLbl.AutoSize = true;
             this.dateDebutLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.dateDebutLbl.ForeColor = System.Drawing.Color.White;
-            this.dateDebutLbl.Location = new System.Drawing.Point(639, 434);
+            this.dateDebutLbl.Location = new System.Drawing.Point(775, 422);
             this.dateDebutLbl.Name = "dateDebutLbl";
             this.dateDebutLbl.Size = new System.Drawing.Size(82, 15);
             this.dateDebutLbl.TabIndex = 12;
@@ -199,7 +201,7 @@
             this.dateFinLbl.AutoSize = true;
             this.dateFinLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.dateFinLbl.ForeColor = System.Drawing.Color.White;
-            this.dateFinLbl.Location = new System.Drawing.Point(639, 522);
+            this.dateFinLbl.Location = new System.Drawing.Point(775, 510);
             this.dateFinLbl.Name = "dateFinLbl";
             this.dateFinLbl.Size = new System.Drawing.Size(65, 15);
             this.dateFinLbl.TabIndex = 13;
@@ -210,7 +212,7 @@
             this.motifAbs.AutoSize = true;
             this.motifAbs.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.motifAbs.ForeColor = System.Drawing.Color.White;
-            this.motifAbs.Location = new System.Drawing.Point(1040, 390);
+            this.motifAbs.Location = new System.Drawing.Point(1172, 390);
             this.motifAbs.Name = "motifAbs";
             this.motifAbs.Size = new System.Drawing.Size(92, 15);
             this.motifAbs.TabIndex = 14;
@@ -221,7 +223,7 @@
             this.nomPersonnelLbl.AutoSize = true;
             this.nomPersonnelLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.nomPersonnelLbl.ForeColor = System.Drawing.Color.White;
-            this.nomPersonnelLbl.Location = new System.Drawing.Point(100, 414);
+            this.nomPersonnelLbl.Location = new System.Drawing.Point(112, 421);
             this.nomPersonnelLbl.Name = "nomPersonnelLbl";
             this.nomPersonnelLbl.Size = new System.Drawing.Size(34, 15);
             this.nomPersonnelLbl.TabIndex = 15;
@@ -232,7 +234,7 @@
             this.prenomPersonnelLbl.AutoSize = true;
             this.prenomPersonnelLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.prenomPersonnelLbl.ForeColor = System.Drawing.Color.White;
-            this.prenomPersonnelLbl.Location = new System.Drawing.Point(100, 456);
+            this.prenomPersonnelLbl.Location = new System.Drawing.Point(112, 463);
             this.prenomPersonnelLbl.Name = "prenomPersonnelLbl";
             this.prenomPersonnelLbl.Size = new System.Drawing.Size(49, 15);
             this.prenomPersonnelLbl.TabIndex = 16;
@@ -243,7 +245,7 @@
             this.TéléphonePersonnelLbl.AutoSize = true;
             this.TéléphonePersonnelLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.TéléphonePersonnelLbl.ForeColor = System.Drawing.Color.White;
-            this.TéléphonePersonnelLbl.Location = new System.Drawing.Point(100, 505);
+            this.TéléphonePersonnelLbl.Location = new System.Drawing.Point(112, 512);
             this.TéléphonePersonnelLbl.Name = "TéléphonePersonnelLbl";
             this.TéléphonePersonnelLbl.Size = new System.Drawing.Size(62, 15);
             this.TéléphonePersonnelLbl.TabIndex = 17;
@@ -254,7 +256,7 @@
             this.emailPersonnelLbl.AutoSize = true;
             this.emailPersonnelLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.emailPersonnelLbl.ForeColor = System.Drawing.Color.White;
-            this.emailPersonnelLbl.Location = new System.Drawing.Point(100, 547);
+            this.emailPersonnelLbl.Location = new System.Drawing.Point(112, 554);
             this.emailPersonnelLbl.Name = "emailPersonnelLbl";
             this.emailPersonnelLbl.Size = new System.Drawing.Size(36, 15);
             this.emailPersonnelLbl.TabIndex = 18;
@@ -262,28 +264,28 @@
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(181, 407);
+            this.textBox1.Location = new System.Drawing.Point(193, 414);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(138, 20);
             this.textBox1.TabIndex = 19;
             // 
             // textBox2
             // 
-            this.textBox2.Location = new System.Drawing.Point(181, 453);
+            this.textBox2.Location = new System.Drawing.Point(193, 460);
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(138, 20);
             this.textBox2.TabIndex = 20;
             // 
             // textBox3
             // 
-            this.textBox3.Location = new System.Drawing.Point(181, 498);
+            this.textBox3.Location = new System.Drawing.Point(193, 505);
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(138, 20);
             this.textBox3.TabIndex = 21;
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(181, 544);
+            this.textBox4.Location = new System.Drawing.Point(193, 551);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(138, 20);
             this.textBox4.TabIndex = 22;
@@ -291,17 +293,17 @@
             // servicePersonnelLst
             // 
             this.servicePersonnelLst.FormattingEnabled = true;
-            this.servicePersonnelLst.Location = new System.Drawing.Point(409, 408);
+            this.servicePersonnelLst.Location = new System.Drawing.Point(465, 408);
             this.servicePersonnelLst.Name = "servicePersonnelLst";
-            this.servicePersonnelLst.Size = new System.Drawing.Size(136, 173);
+            this.servicePersonnelLst.Size = new System.Drawing.Size(145, 173);
             this.servicePersonnelLst.TabIndex = 23;
             // 
             // motifAbsLst
             // 
             this.motifAbsLst.FormattingEnabled = true;
-            this.motifAbsLst.Location = new System.Drawing.Point(1020, 408);
+            this.motifAbsLst.Location = new System.Drawing.Point(1137, 408);
             this.motifAbsLst.Name = "motifAbsLst";
-            this.motifAbsLst.Size = new System.Drawing.Size(129, 173);
+            this.motifAbsLst.Size = new System.Drawing.Size(145, 173);
             this.motifAbsLst.TabIndex = 24;
             // 
             // servicePersonnelLbl
@@ -309,7 +311,7 @@
             this.servicePersonnelLbl.AutoSize = true;
             this.servicePersonnelLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.servicePersonnelLbl.ForeColor = System.Drawing.Color.White;
-            this.servicePersonnelLbl.Location = new System.Drawing.Point(420, 390);
+            this.servicePersonnelLbl.Location = new System.Drawing.Point(480, 390);
             this.servicePersonnelLbl.Name = "servicePersonnelLbl";
             this.servicePersonnelLbl.Size = new System.Drawing.Size(115, 15);
             this.servicePersonnelLbl.TabIndex = 27;
@@ -322,7 +324,7 @@
             this.enregistrerPersonnelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.enregistrerPersonnelBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.enregistrerPersonnelBtn.ForeColor = System.Drawing.Color.White;
-            this.enregistrerPersonnelBtn.Location = new System.Drawing.Point(103, 623);
+            this.enregistrerPersonnelBtn.Location = new System.Drawing.Point(131, 607);
             this.enregistrerPersonnelBtn.Name = "enregistrerPersonnelBtn";
             this.enregistrerPersonnelBtn.Size = new System.Drawing.Size(95, 33);
             this.enregistrerPersonnelBtn.TabIndex = 28;
@@ -336,7 +338,7 @@
             this.annulerPersonnelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.annulerPersonnelBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.annulerPersonnelBtn.ForeColor = System.Drawing.Color.White;
-            this.annulerPersonnelBtn.Location = new System.Drawing.Point(255, 623);
+            this.annulerPersonnelBtn.Location = new System.Drawing.Point(283, 607);
             this.annulerPersonnelBtn.Name = "annulerPersonnelBtn";
             this.annulerPersonnelBtn.Size = new System.Drawing.Size(95, 33);
             this.annulerPersonnelBtn.TabIndex = 29;
@@ -350,7 +352,7 @@
             this.enregistrerAbsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.enregistrerAbsBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.enregistrerAbsBtn.ForeColor = System.Drawing.Color.White;
-            this.enregistrerAbsBtn.Location = new System.Drawing.Point(691, 623);
+            this.enregistrerAbsBtn.Location = new System.Drawing.Point(807, 607);
             this.enregistrerAbsBtn.Name = "enregistrerAbsBtn";
             this.enregistrerAbsBtn.Size = new System.Drawing.Size(95, 33);
             this.enregistrerAbsBtn.TabIndex = 30;
@@ -364,7 +366,7 @@
             this.annulerAbsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.annulerAbsBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.annulerAbsBtn.ForeColor = System.Drawing.Color.White;
-            this.annulerAbsBtn.Location = new System.Drawing.Point(832, 623);
+            this.annulerAbsBtn.Location = new System.Drawing.Point(948, 607);
             this.annulerAbsBtn.Name = "annulerAbsBtn";
             this.annulerAbsBtn.Size = new System.Drawing.Size(95, 33);
             this.annulerAbsBtn.TabIndex = 31;
@@ -374,7 +376,7 @@
             // dateTimePicker1
             // 
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(727, 432);
+            this.dateTimePicker1.Location = new System.Drawing.Point(863, 420);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker1.TabIndex = 32;
@@ -382,11 +384,10 @@
             // dateTimePicker2
             // 
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(729, 517);
+            this.dateTimePicker2.Location = new System.Drawing.Point(865, 505);
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(198, 20);
             this.dateTimePicker2.TabIndex = 33;
-            this.dateTimePicker2.ValueChanged += new System.EventHandler(this.dateTimePicker2_ValueChanged);
             // 
             // dateTimePicker3
             // 
@@ -397,18 +398,41 @@
             // 
             // personnelGrid
             // 
+            this.personnelGrid.BackgroundColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.personnelGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.personnelGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.personnelGrid.Cursor = System.Windows.Forms.Cursors.PanNW;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.personnelGrid.DefaultCellStyle = dataGridViewCellStyle2;
+            this.personnelGrid.GridColor = System.Drawing.SystemColors.Window;
             this.personnelGrid.Location = new System.Drawing.Point(29, 27);
             this.personnelGrid.Name = "personnelGrid";
-            this.personnelGrid.Size = new System.Drawing.Size(528, 238);
+            this.personnelGrid.RowHeadersWidth = 30;
+            this.personnelGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.personnelGrid.RowTemplate.Height = 26;
+            this.personnelGrid.Size = new System.Drawing.Size(587, 253);
             this.personnelGrid.TabIndex = 35;
             // 
             // absenceGrid
             // 
+            this.absenceGrid.BackgroundColor = System.Drawing.Color.Snow;
             this.absenceGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.absenceGrid.Location = new System.Drawing.Point(621, 27);
+            this.absenceGrid.Location = new System.Drawing.Point(695, 27);
             this.absenceGrid.Name = "absenceGrid";
-            this.absenceGrid.Size = new System.Drawing.Size(528, 238);
+            this.absenceGrid.Size = new System.Drawing.Size(587, 253);
             this.absenceGrid.TabIndex = 36;
             // 
             // Accueil
@@ -416,7 +440,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(78)))), ((int)(((byte)(146)))));
-            this.ClientSize = new System.Drawing.Size(1177, 681);
+            this.ClientSize = new System.Drawing.Size(1310, 672);
             this.Controls.Add(this.absenceGrid);
             this.Controls.Add(this.personnelGrid);
             this.Controls.Add(this.dateTimePicker3);

@@ -8,5 +8,6 @@ namespace Mediatek86.controller
 {
     class AbsenceController
     {
+
     }
 }
