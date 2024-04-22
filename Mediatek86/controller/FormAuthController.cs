@@ -22,12 +22,12 @@ namespace Mediatek86.controller
                     // Exécute la requête SQL avec les paramètres
                     List<Object[]> reqExecution = access.Manager.ReqSelect(req, parameters);
 
-                    // Vérifie si des enregistrements ont été retournés
+                    // Vérifie si des donnees ont été retournés
                     return (reqExecution != null && reqExecution.Count > 0);
                 }
                 catch(Exception ex)
                 {
-                    Console.WriteLine($"Erreur lors de la vérification des informations de connexion : {ex.Message}");
+                    Console.WriteLine("Erreur lors de la vérification des informations de connexion :" + ex.Message);
                     return false;
                 }
             }

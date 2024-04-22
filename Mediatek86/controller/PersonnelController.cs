@@ -8,8 +8,10 @@ namespace Mediatek86.controller
 {
     public class PersonnelController
     {
+        //instance de Access
         private Access access = Access.GetInstance();
-        public void PersonnelGridData(DataGridView dataGridName)
+
+        public void PersonnelGridData(DataGridView dataPersonnelGridName)
         {
             if(access.Manager != null)
             {
@@ -34,11 +36,11 @@ namespace Mediatek86.controller
                         lesPersonnels.Add(unPersonnel);
                     }
                     //Lier la liste lesPersonnels à la dataGridView
-                    dataGridName.DataSource = lesPersonnels;
+                    dataPersonnelGridName.DataSource = lesPersonnels;
                
                 }catch(Exception ex)
                 {
-                    Console.WriteLine("La requête envoyé à la base de donnée a echouée" + ex.Message);
+                    Console.WriteLine("La requête SELECT envoyé à la base de donnée a echouée" + ex.Message);
                 }
             }
             else
@@ -46,5 +48,43 @@ namespace Mediatek86.controller
                 Console.WriteLine("Connexion à la base de donnée échouée !");
             }
         }
+
+        public void DeletePersonnel(DataGridView dataPersonnelGridName)
+        {
+            if(access.Manager != null && dataPersonnelGridName.SelectedRows.Count > 0)
+            {
+                DialogResult response = MessageBox.Show("Etes vous sûr de vouloir supprimer ce personnel ?", "Confirmation de suppression", MessageBoxButtons.OKCancel);
+                if (response == DialogResult.OK)
+                {
+                    string req = "DELETE FROM personnel WHERE idpersonnel=@personnelId";
+                    try
+                    {
+                        //Prends la valeur de la ligne selectionner qui est égale à IdPersonnel et la convertit en str
+                        string personnelId = dataPersonnelGridName.SelectedRows[0].Cells["IdPersonnel"].Value.ToString();
+                        //Création d'un paramètre pour éviter les injections sql
+                        Dictionary<string, object> parameters = new Dictionary<string, object>
+                        {
+                            {"@personnelId", personnelId }
+                        };
+
+                        //Execution de la requête 
+                        access.Manager.ReqUpdate(req, parameters);
+                        //Actualisation de l'affichage de la dataGridView en appelant PersonnelGridData
+                        PersonnelGridData(dataPersonnelGridName);
+
+                        MessageBox.Show("Le personnel sélectionné a été supprimé !");
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show("La requête DELETE envoyée à la base de donnée a echouée : " + ex.Message);
+                    }
+                }     
+            }
+            else
+            {
+                MessageBox.Show("Aucun personnel sélectionné pour la suppression.");
+            }
+        }
+
     }
 }

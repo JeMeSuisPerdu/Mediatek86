@@ -14,7 +14,7 @@ namespace Mediatek86.Vue
     public partial class Accueil : Form
     {
         //instance de PersonnelController
-        PersonnelController personnelGridLoading = new PersonnelController();
+        PersonnelController unPersonnel = new PersonnelController();
 
         //Petite methode pour redefinir la width des column...Ouais...j'ai vraiment fais ca...
         public void dataGridColumnsResizing(DataGridView gridName, string sizesString, char separator)
@@ -49,11 +49,16 @@ namespace Mediatek86.Vue
         private void Accueil_Load(object sender, EventArgs e)
         {
             //utilisation de PersonnelGridData pour remplir le dataGridView
-            personnelGridLoading.PersonnelGridData(personnelGrid);
+            unPersonnel.PersonnelGridData(personnelGrid);
 
-            //redisign des tailles des grid grâce dataGridColumnsResizing
+            //redesign des tailles des grid grâce dataGridColumnsResizing
             dataGridColumnsResizing(personnelGrid, "72-80-81-80-168-57", '-');
 
+        }
+
+        private void supprimerPersonnelBtn_Click(object sender, EventArgs e)
+        {
+            unPersonnel.DeletePersonnel(personnelGrid);
         }
     }
 }
