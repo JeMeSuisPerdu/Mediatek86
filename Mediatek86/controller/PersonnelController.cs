@@ -86,5 +86,65 @@ namespace Mediatek86.controller
             }
         }
 
+        public void ShowPersonnelInfo(DataGridView dataPersonnelGridName, TextBox nomPersonnelTxtbox, TextBox prenomPersonnelTxtbox, TextBox telPersonnelTxtbox, TextBox emailPersonnelTxtbox)
+        {
+
+            if (access.Manager !=null && dataPersonnelGridName.SelectedRows.Count > 0)
+            {
+                try
+                {
+                    // Récupère le texte de chaque cellule de la dataGridView en fonction du titre de la colonne
+                    string personnelNom = dataPersonnelGridName.SelectedRows[0].Cells["Nom"].Value.ToString();
+                    string personnelPrenom = dataPersonnelGridName.SelectedRows[0].Cells["Prenom"].Value.ToString();
+                    string personnelTel = dataPersonnelGridName.SelectedRows[0].Cells["Tel"].Value.ToString();
+                    string personnelEmail = dataPersonnelGridName.SelectedRows[0].Cells["Mail"].Value.ToString();
+
+                    //Attribut à chaque textbox le texte récupéré dans la dataGridView
+                    nomPersonnelTxtbox.Text = personnelNom;
+                    prenomPersonnelTxtbox.Text = personnelPrenom;
+                    telPersonnelTxtbox.Text = personnelTel;
+                    emailPersonnelTxtbox.Text = personnelEmail;
+                }
+                catch(Exception ex)
+                {
+                    MessageBox.Show("Erreur lors de la sélection des données ! " + ex.Message);
+                }              
+            }
+            else
+            {
+                MessageBox.Show("Veuillez sélectionner au moins un personnel à modifier ! ");
+            }
+        }
+        public void SelectService(ListBox listeService)
+        {
+            string req = "SELECT idservice, nom FROM service";
+            try
+            {
+                List<Object[]> reqPersonnel = access.Manager.ReqSelect(req);
+
+                foreach(Object[] columnTable in reqPersonnel)
+                {
+                    int idService = Convert.ToInt32(columnTable[0]);
+                    string nomService = Convert.ToString(columnTable[1]);
+
+                    //On déclare IdService comme clé
+                    listeService.ValueMember = "IdService";
+                    //On déclare NomService comme valeur
+                    listeService.DisplayMember = "NomService";
+                    //On ajoute à la liste un objet sans nom qui associe IdService à idService...
+                    listeService.Items.Add(new { IdService = idService, NomService = nomService});
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Erreur de récupération des services : " + ex.Message);
+            }
+        }
+        public void UpdatePersonnel(DataGridView dataPersonnelGridName)
+        {
+            MessageBox.Show("Êtes vous sûr de vouloir modifier ce personnel ?", "Confirmation modification");
+        }
+
+
     }
 }

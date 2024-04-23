@@ -46,10 +46,10 @@
             this.prenomPersonnelLbl = new System.Windows.Forms.Label();
             this.TéléphonePersonnelLbl = new System.Windows.Forms.Label();
             this.emailPersonnelLbl = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.nomPersonnelTxt = new System.Windows.Forms.TextBox();
+            this.prenomPersonnelTxt = new System.Windows.Forms.TextBox();
+            this.telPersonnelTxt = new System.Windows.Forms.TextBox();
+            this.emailPersonnelTxt = new System.Windows.Forms.TextBox();
             this.servicePersonnelLst = new System.Windows.Forms.ListBox();
             this.motifAbsLst = new System.Windows.Forms.ListBox();
             this.servicePersonnelLbl = new System.Windows.Forms.Label();
@@ -121,6 +121,7 @@
             this.modifierPersonnelBtn.TabIndex = 6;
             this.modifierPersonnelBtn.Text = "Modifier";
             this.modifierPersonnelBtn.UseVisualStyleBackColor = false;
+            this.modifierPersonnelBtn.Click += new System.EventHandler(this.modifierPersonnelBtn_Click);
             // 
             // AjouterAbsBtn
             // 
@@ -196,6 +197,7 @@
             this.dateDebutLbl.Size = new System.Drawing.Size(82, 15);
             this.dateDebutLbl.TabIndex = 12;
             this.dateDebutLbl.Text = "Date de début";
+            this.dateDebutLbl.Visible = false;
             // 
             // dateFinLbl
             // 
@@ -207,17 +209,19 @@
             this.dateFinLbl.Size = new System.Drawing.Size(65, 15);
             this.dateFinLbl.TabIndex = 13;
             this.dateFinLbl.Text = "Date de fin";
+            this.dateFinLbl.Visible = false;
             // 
             // motifAbs
             // 
             this.motifAbs.AutoSize = true;
             this.motifAbs.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.motifAbs.ForeColor = System.Drawing.Color.White;
-            this.motifAbs.Location = new System.Drawing.Point(1172, 390);
+            this.motifAbs.Location = new System.Drawing.Point(1163, 390);
             this.motifAbs.Name = "motifAbs";
             this.motifAbs.Size = new System.Drawing.Size(92, 15);
             this.motifAbs.TabIndex = 14;
             this.motifAbs.Text = "Motif d\'absence";
+            this.motifAbs.Visible = false;
             // 
             // nomPersonnelLbl
             // 
@@ -263,33 +267,33 @@
             this.emailPersonnelLbl.TabIndex = 18;
             this.emailPersonnelLbl.Text = "Email";
             // 
-            // textBox1
+            // nomPersonnelTxt
             // 
-            this.textBox1.Location = new System.Drawing.Point(193, 414);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(138, 20);
-            this.textBox1.TabIndex = 19;
+            this.nomPersonnelTxt.Location = new System.Drawing.Point(193, 414);
+            this.nomPersonnelTxt.Name = "nomPersonnelTxt";
+            this.nomPersonnelTxt.Size = new System.Drawing.Size(138, 20);
+            this.nomPersonnelTxt.TabIndex = 19;
             // 
-            // textBox2
+            // prenomPersonnelTxt
             // 
-            this.textBox2.Location = new System.Drawing.Point(193, 460);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(138, 20);
-            this.textBox2.TabIndex = 20;
+            this.prenomPersonnelTxt.Location = new System.Drawing.Point(193, 460);
+            this.prenomPersonnelTxt.Name = "prenomPersonnelTxt";
+            this.prenomPersonnelTxt.Size = new System.Drawing.Size(138, 20);
+            this.prenomPersonnelTxt.TabIndex = 20;
             // 
-            // textBox3
+            // telPersonnelTxt
             // 
-            this.textBox3.Location = new System.Drawing.Point(193, 505);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(138, 20);
-            this.textBox3.TabIndex = 21;
+            this.telPersonnelTxt.Location = new System.Drawing.Point(193, 505);
+            this.telPersonnelTxt.Name = "telPersonnelTxt";
+            this.telPersonnelTxt.Size = new System.Drawing.Size(138, 20);
+            this.telPersonnelTxt.TabIndex = 21;
             // 
-            // textBox4
+            // emailPersonnelTxt
             // 
-            this.textBox4.Location = new System.Drawing.Point(193, 551);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(138, 20);
-            this.textBox4.TabIndex = 22;
+            this.emailPersonnelTxt.Location = new System.Drawing.Point(193, 551);
+            this.emailPersonnelTxt.Name = "emailPersonnelTxt";
+            this.emailPersonnelTxt.Size = new System.Drawing.Size(138, 20);
+            this.emailPersonnelTxt.TabIndex = 22;
             // 
             // servicePersonnelLst
             // 
@@ -306,6 +310,7 @@
             this.motifAbsLst.Name = "motifAbsLst";
             this.motifAbsLst.Size = new System.Drawing.Size(145, 173);
             this.motifAbsLst.TabIndex = 24;
+            this.motifAbsLst.Visible = false;
             // 
             // servicePersonnelLbl
             // 
@@ -331,6 +336,7 @@
             this.enregistrerPersonnelBtn.TabIndex = 28;
             this.enregistrerPersonnelBtn.Text = "Enregistrer";
             this.enregistrerPersonnelBtn.UseVisualStyleBackColor = false;
+            this.enregistrerPersonnelBtn.Click += new System.EventHandler(this.enregistrerPersonnelBtn_Click);
             // 
             // annulerPersonnelBtn
             // 
@@ -359,6 +365,7 @@
             this.enregistrerAbsBtn.TabIndex = 30;
             this.enregistrerAbsBtn.Text = "Enregistrer";
             this.enregistrerAbsBtn.UseVisualStyleBackColor = false;
+            this.enregistrerAbsBtn.Visible = false;
             // 
             // annulerAbsBtn
             // 
@@ -373,6 +380,7 @@
             this.annulerAbsBtn.TabIndex = 31;
             this.annulerAbsBtn.Text = "Annuler";
             this.annulerAbsBtn.UseVisualStyleBackColor = false;
+            this.annulerAbsBtn.Visible = false;
             // 
             // dateTimePicker1
             // 
@@ -381,6 +389,7 @@
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
             this.dateTimePicker1.TabIndex = 32;
+            this.dateTimePicker1.Visible = false;
             // 
             // dateTimePicker2
             // 
@@ -389,6 +398,7 @@
             this.dateTimePicker2.Name = "dateTimePicker2";
             this.dateTimePicker2.Size = new System.Drawing.Size(198, 20);
             this.dateTimePicker2.TabIndex = 33;
+            this.dateTimePicker2.Visible = false;
             // 
             // dateTimePicker3
             // 
@@ -445,7 +455,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(78)))), ((int)(((byte)(146)))));
-            this.ClientSize = new System.Drawing.Size(1310, 672);
+            this.ClientSize = new System.Drawing.Size(1310, 602);
             this.Controls.Add(this.absenceGrid);
             this.Controls.Add(this.personnelGrid);
             this.Controls.Add(this.dateTimePicker3);
@@ -458,10 +468,10 @@
             this.Controls.Add(this.servicePersonnelLbl);
             this.Controls.Add(this.motifAbsLst);
             this.Controls.Add(this.servicePersonnelLst);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.emailPersonnelTxt);
+            this.Controls.Add(this.telPersonnelTxt);
+            this.Controls.Add(this.prenomPersonnelTxt);
+            this.Controls.Add(this.nomPersonnelTxt);
             this.Controls.Add(this.emailPersonnelLbl);
             this.Controls.Add(this.TéléphonePersonnelLbl);
             this.Controls.Add(this.prenomPersonnelLbl);
@@ -506,10 +516,10 @@
         private System.Windows.Forms.Label prenomPersonnelLbl;
         private System.Windows.Forms.Label TéléphonePersonnelLbl;
         private System.Windows.Forms.Label emailPersonnelLbl;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox nomPersonnelTxt;
+        private System.Windows.Forms.TextBox prenomPersonnelTxt;
+        private System.Windows.Forms.TextBox telPersonnelTxt;
+        private System.Windows.Forms.TextBox emailPersonnelTxt;
         private System.Windows.Forms.ListBox servicePersonnelLst;
         private System.Windows.Forms.ListBox motifAbsLst;
         private System.Windows.Forms.Label servicePersonnelLbl;

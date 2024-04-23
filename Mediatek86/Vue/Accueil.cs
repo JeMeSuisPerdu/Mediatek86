@@ -58,7 +58,25 @@ namespace Mediatek86.Vue
 
         private void supprimerPersonnelBtn_Click(object sender, EventArgs e)
         {
+            //methode de suppression du personnel dans la grid + base de donnée
             unPersonnel.DeletePersonnel(personnelGrid);
+        }
+
+        private void modifierPersonnelBtn_Click(object sender, EventArgs e)
+        {
+            //Methode qui affiche les infos de la ligne selectionnée
+            unPersonnel.ShowPersonnelInfo(personnelGrid, nomPersonnelTxt, prenomPersonnelTxt, telPersonnelTxt, emailPersonnelTxt);
+            unPersonnel.SelectService(servicePersonnelLst);
+            //Changement de taille du form pour afficher les textbox 
+            this.Size = new Size(1326, 717);
+            //Empêche la selection dans la dataGridView dès qu'on appuie sur modifier
+            personnelGrid.Enabled = false;
+            
+        }
+
+        private void enregistrerPersonnelBtn_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
