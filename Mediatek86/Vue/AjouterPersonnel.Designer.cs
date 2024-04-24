@@ -141,6 +141,7 @@
             this.annulerPersonnelBtn.TabIndex = 11;
             this.annulerPersonnelBtn.Text = "Annuler";
             this.annulerPersonnelBtn.UseVisualStyleBackColor = false;
+            this.annulerPersonnelBtn.Click += new System.EventHandler(this.annulerPersonnelBtn_Click);
             // 
             // ajouterPersonnelBtn
             // 
@@ -154,6 +155,7 @@
             this.ajouterPersonnelBtn.TabIndex = 12;
             this.ajouterPersonnelBtn.Text = "Ajouter";
             this.ajouterPersonnelBtn.UseVisualStyleBackColor = false;
+            this.ajouterPersonnelBtn.Click += new System.EventHandler(this.ajouterPersonnelBtn_Click);
             // 
             // ajouterPersonnelTitre
             // 
@@ -169,7 +171,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(78)))), ((int)(((byte)(146)))));
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(34)))), ((int)(((byte)(100)))));
             this.ClientSize = new System.Drawing.Size(774, 469);
             this.Controls.Add(this.ajouterPersonnelTitre);
             this.Controls.Add(this.ajouterPersonnelBtn);
@@ -188,6 +190,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AjouterPersonnel";
             this.Text = "Ajout d\'un personnel";
+            this.Load += new System.EventHandler(this.AjouterPersonnel_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AjouterPersonnel_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AjouterPersonnel_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.AjouterPersonnel_MouseUp);

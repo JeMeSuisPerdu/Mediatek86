@@ -1,11 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using Mediatek86.controller;
 
@@ -14,7 +7,7 @@ namespace Mediatek86.Vue
     public partial class Accueil : Form
     {
         //instance de PersonnelController
-        PersonnelController unPersonnel = new PersonnelController();
+        readonly PersonnelController unPersonnel = new PersonnelController();
 
         //Petite methode pour redefinir la width des column...Ouais...j'ai vraiment fais ca...
         public void dataGridColumnsResizing(DataGridView gridName, string sizesString, char separator)
@@ -40,6 +33,11 @@ namespace Mediatek86.Vue
                 gridName.Columns[i].Width = size;
             }
         }
+        public void actualiserDataGridView()
+        {
+            // Utilise la méthode pour charger les données dans la DataGridView
+            unPersonnel.PersonnelGridData(personnelGrid);
+        }
 
         public Accueil()
         {
@@ -50,10 +48,8 @@ namespace Mediatek86.Vue
         {
             //utilisation de PersonnelGridData pour remplir le dataGridView
             unPersonnel.PersonnelGridData(personnelGrid);
-
             //redesign des tailles des grid grâce dataGridColumnsResizing
-            dataGridColumnsResizing(personnelGrid, "72-80-81-80-168-57", '-');
-
+            dataGridColumnsResizing(personnelGrid, "72-80-81-80-168-70", '-');
         }
 
         private void supprimerPersonnelBtn_Click(object sender, EventArgs e)
@@ -65,18 +61,36 @@ namespace Mediatek86.Vue
         private void modifierPersonnelBtn_Click(object sender, EventArgs e)
         {
             //Methode qui affiche les infos de la ligne selectionnée
-            unPersonnel.ShowPersonnelInfo(personnelGrid, nomPersonnelTxt, prenomPersonnelTxt, telPersonnelTxt, emailPersonnelTxt);
+            unPersonnel.ShowPersonnelInfo(personnelGrid, nomPersonnelTxt, prenomPersonnelTxt, telPersonnelTxt, emailPersonnelTxt, modifierPersonnelBtn);
             unPersonnel.SelectService(servicePersonnelLst);
-            //Changement de taille du form pour afficher les textbox 
-            this.Size = new Size(1326, 717);
+
             //Empêche la selection dans la dataGridView dès qu'on appuie sur modifier
             personnelGrid.Enabled = false;
-            
+            updatePersonnelGrpBox.Enabled = true;
         }
 
         private void enregistrerPersonnelBtn_Click(object sender, EventArgs e)
         {
+            unPersonnel.UpdatePersonnel(personnelGrid, nomPersonnelTxt, prenomPersonnelTxt, telPersonnelTxt, emailPersonnelTxt, servicePersonnelLst, modifierPersonnelBtn, updatePersonnelGrpBox);
+        }
 
+        private void annulerPersonnelBtn_Click(object sender, EventArgs e)
+        {
+            personnelGrid.Enabled = true;
+            modifierPersonnelBtn.Enabled = true;
+            servicePersonnelLst.Items.Clear();
+            updatePersonnelGrpBox.Enabled = false;
+        }
+
+        private void ajouterPersonnelBtn_Click(object sender, EventArgs e)
+        {
+            // Créer une instance de AjouterPersonnel et définit Accueil comme proprio
+            AjouterPersonnel ajouterPersonnelForm = new AjouterPersonnel();
+            ajouterPersonnelForm.Owner = this;
+            //Cache la page d'accueil
+            this.Visible = false;
+            // Affiche AjouterPersonnel
+            ajouterPersonnelForm.Show();
         }
     }
 }

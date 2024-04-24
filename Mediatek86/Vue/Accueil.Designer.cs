@@ -62,8 +62,12 @@
             this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
             this.personnelGrid = new System.Windows.Forms.DataGridView();
             this.absenceGrid = new System.Windows.Forms.DataGridView();
+            this.updatePersonnelGrpBox = new System.Windows.Forms.GroupBox();
+            this.updateAbsGrpBox = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.personnelGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.absenceGrid)).BeginInit();
+            this.updatePersonnelGrpBox.SuspendLayout();
+            this.updateAbsGrpBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // ajouterPersonnelBtn
@@ -79,6 +83,7 @@
             this.ajouterPersonnelBtn.TabIndex = 2;
             this.ajouterPersonnelBtn.Text = "Ajouter";
             this.ajouterPersonnelBtn.UseVisualStyleBackColor = false;
+            this.ajouterPersonnelBtn.Click += new System.EventHandler(this.ajouterPersonnelBtn_Click);
             // 
             // supprimerPersonnelBtn
             // 
@@ -110,7 +115,7 @@
             // 
             // modifierPersonnelBtn
             // 
-            this.modifierPersonnelBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(81)))), ((int)(((byte)(217)))));
+            this.modifierPersonnelBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(153)))), ((int)(((byte)(250)))));
             this.modifierPersonnelBtn.FlatAppearance.BorderSize = 0;
             this.modifierPersonnelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.modifierPersonnelBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -153,7 +158,7 @@
             // 
             // modifierAbsBtn
             // 
-            this.modifierAbsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(81)))), ((int)(((byte)(217)))));
+            this.modifierAbsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(29)))), ((int)(((byte)(153)))), ((int)(((byte)(250)))));
             this.modifierAbsBtn.FlatAppearance.BorderSize = 0;
             this.modifierAbsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.modifierAbsBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
@@ -192,43 +197,40 @@
             this.dateDebutLbl.AutoSize = true;
             this.dateDebutLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.dateDebutLbl.ForeColor = System.Drawing.Color.White;
-            this.dateDebutLbl.Location = new System.Drawing.Point(775, 422);
+            this.dateDebutLbl.Location = new System.Drawing.Point(35, 56);
             this.dateDebutLbl.Name = "dateDebutLbl";
             this.dateDebutLbl.Size = new System.Drawing.Size(82, 15);
             this.dateDebutLbl.TabIndex = 12;
             this.dateDebutLbl.Text = "Date de début";
-            this.dateDebutLbl.Visible = false;
             // 
             // dateFinLbl
             // 
             this.dateFinLbl.AutoSize = true;
             this.dateFinLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.dateFinLbl.ForeColor = System.Drawing.Color.White;
-            this.dateFinLbl.Location = new System.Drawing.Point(775, 510);
+            this.dateFinLbl.Location = new System.Drawing.Point(35, 144);
             this.dateFinLbl.Name = "dateFinLbl";
             this.dateFinLbl.Size = new System.Drawing.Size(65, 15);
             this.dateFinLbl.TabIndex = 13;
             this.dateFinLbl.Text = "Date de fin";
-            this.dateFinLbl.Visible = false;
             // 
             // motifAbs
             // 
             this.motifAbs.AutoSize = true;
             this.motifAbs.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.motifAbs.ForeColor = System.Drawing.Color.White;
-            this.motifAbs.Location = new System.Drawing.Point(1163, 390);
+            this.motifAbs.Location = new System.Drawing.Point(442, 15);
             this.motifAbs.Name = "motifAbs";
             this.motifAbs.Size = new System.Drawing.Size(92, 15);
             this.motifAbs.TabIndex = 14;
             this.motifAbs.Text = "Motif d\'absence";
-            this.motifAbs.Visible = false;
             // 
             // nomPersonnelLbl
             // 
             this.nomPersonnelLbl.AutoSize = true;
             this.nomPersonnelLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.nomPersonnelLbl.ForeColor = System.Drawing.Color.White;
-            this.nomPersonnelLbl.Location = new System.Drawing.Point(112, 421);
+            this.nomPersonnelLbl.Location = new System.Drawing.Point(71, 40);
             this.nomPersonnelLbl.Name = "nomPersonnelLbl";
             this.nomPersonnelLbl.Size = new System.Drawing.Size(34, 15);
             this.nomPersonnelLbl.TabIndex = 15;
@@ -239,7 +241,7 @@
             this.prenomPersonnelLbl.AutoSize = true;
             this.prenomPersonnelLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.prenomPersonnelLbl.ForeColor = System.Drawing.Color.White;
-            this.prenomPersonnelLbl.Location = new System.Drawing.Point(112, 463);
+            this.prenomPersonnelLbl.Location = new System.Drawing.Point(71, 82);
             this.prenomPersonnelLbl.Name = "prenomPersonnelLbl";
             this.prenomPersonnelLbl.Size = new System.Drawing.Size(49, 15);
             this.prenomPersonnelLbl.TabIndex = 16;
@@ -250,7 +252,7 @@
             this.TéléphonePersonnelLbl.AutoSize = true;
             this.TéléphonePersonnelLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.TéléphonePersonnelLbl.ForeColor = System.Drawing.Color.White;
-            this.TéléphonePersonnelLbl.Location = new System.Drawing.Point(112, 512);
+            this.TéléphonePersonnelLbl.Location = new System.Drawing.Point(71, 131);
             this.TéléphonePersonnelLbl.Name = "TéléphonePersonnelLbl";
             this.TéléphonePersonnelLbl.Size = new System.Drawing.Size(62, 15);
             this.TéléphonePersonnelLbl.TabIndex = 17;
@@ -261,7 +263,7 @@
             this.emailPersonnelLbl.AutoSize = true;
             this.emailPersonnelLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.emailPersonnelLbl.ForeColor = System.Drawing.Color.White;
-            this.emailPersonnelLbl.Location = new System.Drawing.Point(112, 554);
+            this.emailPersonnelLbl.Location = new System.Drawing.Point(71, 173);
             this.emailPersonnelLbl.Name = "emailPersonnelLbl";
             this.emailPersonnelLbl.Size = new System.Drawing.Size(36, 15);
             this.emailPersonnelLbl.TabIndex = 18;
@@ -269,36 +271,36 @@
             // 
             // nomPersonnelTxt
             // 
-            this.nomPersonnelTxt.Location = new System.Drawing.Point(193, 414);
+            this.nomPersonnelTxt.Location = new System.Drawing.Point(152, 33);
             this.nomPersonnelTxt.Name = "nomPersonnelTxt";
-            this.nomPersonnelTxt.Size = new System.Drawing.Size(138, 20);
+            this.nomPersonnelTxt.Size = new System.Drawing.Size(138, 22);
             this.nomPersonnelTxt.TabIndex = 19;
             // 
             // prenomPersonnelTxt
             // 
-            this.prenomPersonnelTxt.Location = new System.Drawing.Point(193, 460);
+            this.prenomPersonnelTxt.Location = new System.Drawing.Point(152, 79);
             this.prenomPersonnelTxt.Name = "prenomPersonnelTxt";
-            this.prenomPersonnelTxt.Size = new System.Drawing.Size(138, 20);
+            this.prenomPersonnelTxt.Size = new System.Drawing.Size(138, 22);
             this.prenomPersonnelTxt.TabIndex = 20;
             // 
             // telPersonnelTxt
             // 
-            this.telPersonnelTxt.Location = new System.Drawing.Point(193, 505);
+            this.telPersonnelTxt.Location = new System.Drawing.Point(152, 124);
             this.telPersonnelTxt.Name = "telPersonnelTxt";
-            this.telPersonnelTxt.Size = new System.Drawing.Size(138, 20);
+            this.telPersonnelTxt.Size = new System.Drawing.Size(138, 22);
             this.telPersonnelTxt.TabIndex = 21;
             // 
             // emailPersonnelTxt
             // 
-            this.emailPersonnelTxt.Location = new System.Drawing.Point(193, 551);
+            this.emailPersonnelTxt.Location = new System.Drawing.Point(152, 170);
             this.emailPersonnelTxt.Name = "emailPersonnelTxt";
-            this.emailPersonnelTxt.Size = new System.Drawing.Size(138, 20);
+            this.emailPersonnelTxt.Size = new System.Drawing.Size(138, 22);
             this.emailPersonnelTxt.TabIndex = 22;
             // 
             // servicePersonnelLst
             // 
             this.servicePersonnelLst.FormattingEnabled = true;
-            this.servicePersonnelLst.Location = new System.Drawing.Point(465, 408);
+            this.servicePersonnelLst.Location = new System.Drawing.Point(410, 33);
             this.servicePersonnelLst.Name = "servicePersonnelLst";
             this.servicePersonnelLst.Size = new System.Drawing.Size(145, 173);
             this.servicePersonnelLst.TabIndex = 23;
@@ -306,18 +308,17 @@
             // motifAbsLst
             // 
             this.motifAbsLst.FormattingEnabled = true;
-            this.motifAbsLst.Location = new System.Drawing.Point(1137, 408);
+            this.motifAbsLst.Location = new System.Drawing.Point(411, 33);
             this.motifAbsLst.Name = "motifAbsLst";
             this.motifAbsLst.Size = new System.Drawing.Size(145, 173);
             this.motifAbsLst.TabIndex = 24;
-            this.motifAbsLst.Visible = false;
             // 
             // servicePersonnelLbl
             // 
             this.servicePersonnelLbl.AutoSize = true;
             this.servicePersonnelLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.servicePersonnelLbl.ForeColor = System.Drawing.Color.White;
-            this.servicePersonnelLbl.Location = new System.Drawing.Point(480, 390);
+            this.servicePersonnelLbl.Location = new System.Drawing.Point(423, 15);
             this.servicePersonnelLbl.Name = "servicePersonnelLbl";
             this.servicePersonnelLbl.Size = new System.Drawing.Size(115, 15);
             this.servicePersonnelLbl.TabIndex = 27;
@@ -325,12 +326,12 @@
             // 
             // enregistrerPersonnelBtn
             // 
-            this.enregistrerPersonnelBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(194)))), ((int)(((byte)(58)))));
+            this.enregistrerPersonnelBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(170)))), ((int)(((byte)(109)))));
             this.enregistrerPersonnelBtn.FlatAppearance.BorderSize = 0;
             this.enregistrerPersonnelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.enregistrerPersonnelBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.enregistrerPersonnelBtn.ForeColor = System.Drawing.Color.White;
-            this.enregistrerPersonnelBtn.Location = new System.Drawing.Point(131, 607);
+            this.enregistrerPersonnelBtn.Location = new System.Drawing.Point(108, 226);
             this.enregistrerPersonnelBtn.Name = "enregistrerPersonnelBtn";
             this.enregistrerPersonnelBtn.Size = new System.Drawing.Size(95, 33);
             this.enregistrerPersonnelBtn.TabIndex = 28;
@@ -340,65 +341,62 @@
             // 
             // annulerPersonnelBtn
             // 
-            this.annulerPersonnelBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.annulerPersonnelBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
             this.annulerPersonnelBtn.FlatAppearance.BorderSize = 0;
             this.annulerPersonnelBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.annulerPersonnelBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.annulerPersonnelBtn.ForeColor = System.Drawing.Color.White;
-            this.annulerPersonnelBtn.Location = new System.Drawing.Point(283, 607);
+            this.annulerPersonnelBtn.Location = new System.Drawing.Point(236, 226);
             this.annulerPersonnelBtn.Name = "annulerPersonnelBtn";
             this.annulerPersonnelBtn.Size = new System.Drawing.Size(95, 33);
             this.annulerPersonnelBtn.TabIndex = 29;
             this.annulerPersonnelBtn.Text = "Annuler";
             this.annulerPersonnelBtn.UseVisualStyleBackColor = false;
+            this.annulerPersonnelBtn.Click += new System.EventHandler(this.annulerPersonnelBtn_Click);
             // 
             // enregistrerAbsBtn
             // 
-            this.enregistrerAbsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(103)))), ((int)(((byte)(194)))), ((int)(((byte)(58)))));
+            this.enregistrerAbsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(170)))), ((int)(((byte)(109)))));
             this.enregistrerAbsBtn.FlatAppearance.BorderSize = 0;
             this.enregistrerAbsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.enregistrerAbsBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.enregistrerAbsBtn.ForeColor = System.Drawing.Color.White;
-            this.enregistrerAbsBtn.Location = new System.Drawing.Point(807, 607);
+            this.enregistrerAbsBtn.Location = new System.Drawing.Point(108, 226);
             this.enregistrerAbsBtn.Name = "enregistrerAbsBtn";
             this.enregistrerAbsBtn.Size = new System.Drawing.Size(95, 33);
             this.enregistrerAbsBtn.TabIndex = 30;
             this.enregistrerAbsBtn.Text = "Enregistrer";
             this.enregistrerAbsBtn.UseVisualStyleBackColor = false;
-            this.enregistrerAbsBtn.Visible = false;
             // 
             // annulerAbsBtn
             // 
-            this.annulerAbsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
+            this.annulerAbsBtn.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(244)))), ((int)(((byte)(67)))), ((int)(((byte)(54)))));
             this.annulerAbsBtn.FlatAppearance.BorderSize = 0;
             this.annulerAbsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.annulerAbsBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.annulerAbsBtn.ForeColor = System.Drawing.Color.White;
-            this.annulerAbsBtn.Location = new System.Drawing.Point(948, 607);
+            this.annulerAbsBtn.Location = new System.Drawing.Point(228, 226);
             this.annulerAbsBtn.Name = "annulerAbsBtn";
             this.annulerAbsBtn.Size = new System.Drawing.Size(95, 33);
             this.annulerAbsBtn.TabIndex = 31;
             this.annulerAbsBtn.Text = "Annuler";
             this.annulerAbsBtn.UseVisualStyleBackColor = false;
-            this.annulerAbsBtn.Visible = false;
             // 
             // dateTimePicker1
             // 
             this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(863, 420);
+            this.dateTimePicker1.Location = new System.Drawing.Point(123, 54);
             this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 20);
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
             this.dateTimePicker1.TabIndex = 32;
-            this.dateTimePicker1.Visible = false;
             // 
             // dateTimePicker2
             // 
             this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(865, 505);
+            this.dateTimePicker2.Location = new System.Drawing.Point(125, 139);
             this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(198, 20);
+            this.dateTimePicker2.Size = new System.Drawing.Size(198, 22);
             this.dateTimePicker2.TabIndex = 33;
-            this.dateTimePicker2.Visible = false;
             // 
             // dateTimePicker3
             // 
@@ -411,9 +409,9 @@
             // 
             this.personnelGrid.BackgroundColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
             dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.InfoText;
             dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
@@ -421,10 +419,10 @@
             this.personnelGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.personnelGrid.Cursor = System.Windows.Forms.Cursors.PanNW;
             dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.RoyalBlue;
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.personnelGrid.DefaultCellStyle = dataGridViewCellStyle6;
@@ -450,35 +448,60 @@
             this.absenceGrid.Size = new System.Drawing.Size(587, 253);
             this.absenceGrid.TabIndex = 36;
             // 
+            // updatePersonnelGrpBox
+            // 
+            this.updatePersonnelGrpBox.Controls.Add(this.annulerPersonnelBtn);
+            this.updatePersonnelGrpBox.Controls.Add(this.enregistrerPersonnelBtn);
+            this.updatePersonnelGrpBox.Controls.Add(this.servicePersonnelLbl);
+            this.updatePersonnelGrpBox.Controls.Add(this.servicePersonnelLst);
+            this.updatePersonnelGrpBox.Controls.Add(this.emailPersonnelTxt);
+            this.updatePersonnelGrpBox.Controls.Add(this.telPersonnelTxt);
+            this.updatePersonnelGrpBox.Controls.Add(this.prenomPersonnelTxt);
+            this.updatePersonnelGrpBox.Controls.Add(this.nomPersonnelTxt);
+            this.updatePersonnelGrpBox.Controls.Add(this.emailPersonnelLbl);
+            this.updatePersonnelGrpBox.Controls.Add(this.TéléphonePersonnelLbl);
+            this.updatePersonnelGrpBox.Controls.Add(this.prenomPersonnelLbl);
+            this.updatePersonnelGrpBox.Controls.Add(this.nomPersonnelLbl);
+            this.updatePersonnelGrpBox.Enabled = false;
+            this.updatePersonnelGrpBox.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.updatePersonnelGrpBox.ForeColor = System.Drawing.Color.Snow;
+            this.updatePersonnelGrpBox.Location = new System.Drawing.Point(29, 381);
+            this.updatePersonnelGrpBox.Name = "updatePersonnelGrpBox";
+            this.updatePersonnelGrpBox.Size = new System.Drawing.Size(587, 276);
+            this.updatePersonnelGrpBox.TabIndex = 37;
+            this.updatePersonnelGrpBox.TabStop = false;
+            this.updatePersonnelGrpBox.Text = "Modifier le personnel";
+            // 
+            // updateAbsGrpBox
+            // 
+            this.updateAbsGrpBox.Controls.Add(this.dateTimePicker2);
+            this.updateAbsGrpBox.Controls.Add(this.dateTimePicker1);
+            this.updateAbsGrpBox.Controls.Add(this.annulerAbsBtn);
+            this.updateAbsGrpBox.Controls.Add(this.enregistrerAbsBtn);
+            this.updateAbsGrpBox.Controls.Add(this.motifAbsLst);
+            this.updateAbsGrpBox.Controls.Add(this.motifAbs);
+            this.updateAbsGrpBox.Controls.Add(this.dateFinLbl);
+            this.updateAbsGrpBox.Controls.Add(this.dateDebutLbl);
+            this.updateAbsGrpBox.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.updateAbsGrpBox.ForeColor = System.Drawing.Color.Snow;
+            this.updateAbsGrpBox.Location = new System.Drawing.Point(695, 381);
+            this.updateAbsGrpBox.Name = "updateAbsGrpBox";
+            this.updateAbsGrpBox.Size = new System.Drawing.Size(587, 276);
+            this.updateAbsGrpBox.TabIndex = 38;
+            this.updateAbsGrpBox.TabStop = false;
+            this.updateAbsGrpBox.Text = "Modifier une absence";
+            // 
             // Accueil
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(78)))), ((int)(((byte)(146)))));
-            this.ClientSize = new System.Drawing.Size(1310, 602);
+            this.ClientSize = new System.Drawing.Size(1310, 683);
+            this.Controls.Add(this.updateAbsGrpBox);
+            this.Controls.Add(this.updatePersonnelGrpBox);
             this.Controls.Add(this.absenceGrid);
             this.Controls.Add(this.personnelGrid);
             this.Controls.Add(this.dateTimePicker3);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.dateTimePicker1);
-            this.Controls.Add(this.annulerAbsBtn);
-            this.Controls.Add(this.enregistrerAbsBtn);
-            this.Controls.Add(this.annulerPersonnelBtn);
-            this.Controls.Add(this.enregistrerPersonnelBtn);
-            this.Controls.Add(this.servicePersonnelLbl);
-            this.Controls.Add(this.motifAbsLst);
-            this.Controls.Add(this.servicePersonnelLst);
-            this.Controls.Add(this.emailPersonnelTxt);
-            this.Controls.Add(this.telPersonnelTxt);
-            this.Controls.Add(this.prenomPersonnelTxt);
-            this.Controls.Add(this.nomPersonnelTxt);
-            this.Controls.Add(this.emailPersonnelLbl);
-            this.Controls.Add(this.TéléphonePersonnelLbl);
-            this.Controls.Add(this.prenomPersonnelLbl);
-            this.Controls.Add(this.nomPersonnelLbl);
-            this.Controls.Add(this.motifAbs);
-            this.Controls.Add(this.dateFinLbl);
-            this.Controls.Add(this.dateDebutLbl);
             this.Controls.Add(this.absenceLbl);
             this.Controls.Add(this.personnelLbl);
             this.Controls.Add(this.modifierAbsBtn);
@@ -494,6 +517,10 @@
             this.Load += new System.EventHandler(this.Accueil_Load);
             ((System.ComponentModel.ISupportInitialize)(this.personnelGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.absenceGrid)).EndInit();
+            this.updatePersonnelGrpBox.ResumeLayout(false);
+            this.updatePersonnelGrpBox.PerformLayout();
+            this.updateAbsGrpBox.ResumeLayout(false);
+            this.updateAbsGrpBox.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -532,5 +559,7 @@
         private System.Windows.Forms.DateTimePicker dateTimePicker3;
         private System.Windows.Forms.DataGridView personnelGrid;
         private System.Windows.Forms.DataGridView absenceGrid;
+        private System.Windows.Forms.GroupBox updatePersonnelGrpBox;
+        private System.Windows.Forms.GroupBox updateAbsGrpBox;
     }
 }
