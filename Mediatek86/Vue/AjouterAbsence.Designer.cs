@@ -120,6 +120,7 @@
             this.AjouterAbsBtn.TabIndex = 7;
             this.AjouterAbsBtn.Text = "Ajouter";
             this.AjouterAbsBtn.UseVisualStyleBackColor = false;
+            this.AjouterAbsBtn.Click += new System.EventHandler(this.AjouterAbsBtn_Click);
             // 
             // AnnulerAbsBtn
             // 
@@ -134,6 +135,7 @@
             this.AnnulerAbsBtn.TabIndex = 8;
             this.AnnulerAbsBtn.Text = "Annuler";
             this.AnnulerAbsBtn.UseVisualStyleBackColor = false;
+            this.AnnulerAbsBtn.Click += new System.EventHandler(this.AnnulerAbsBtn_Click);
             // 
             // AjouterAbsence
             // 
@@ -153,6 +155,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Name = "AjouterAbsence";
             this.Text = "AjouterPersonnel";
+            this.Load += new System.EventHandler(this.AjouterAbsence_Load);
             this.MouseDown += new System.Windows.Forms.MouseEventHandler(this.AjouterAbsence_MouseDown);
             this.MouseMove += new System.Windows.Forms.MouseEventHandler(this.AjouterAbsence_MouseMove);
             this.MouseUp += new System.Windows.Forms.MouseEventHandler(this.AjouterAbsence_MouseUp);

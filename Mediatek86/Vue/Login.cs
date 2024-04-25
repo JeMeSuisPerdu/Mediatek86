@@ -2,7 +2,7 @@
 using Mediatek86.controller;
 using System;
 using System.Drawing;
-
+using Mediatek86.Vue;
 using System.Windows.Forms;
 
 
@@ -63,6 +63,11 @@ namespace Mediatek86
                     if (authIsValid)
                     {
                         MessageBox.Show("Connexion à la base de données établie !", "Succès", MessageBoxButtons.OK);
+                        Accueil accueilForm = new Accueil();
+                        accueilForm.Owner = this;
+                        this.Visible = false;
+                        accueilForm.Show();
+
                     }
                     else
                     {

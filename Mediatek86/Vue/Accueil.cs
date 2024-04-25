@@ -1,6 +1,8 @@
 ﻿using System;
+using System.Drawing;
 using System.Windows.Forms;
 using Mediatek86.controller;
+
 
 namespace Mediatek86.Vue
 {
@@ -8,6 +10,7 @@ namespace Mediatek86.Vue
     {
         //instance de PersonnelController
         readonly PersonnelController unPersonnel = new PersonnelController();
+        readonly AbsenceController uneAbsence = new AbsenceController();
 
         //Petite methode pour redefinir la width des column...Ouais...j'ai vraiment fais ca...
         public void dataGridColumnsResizing(DataGridView gridName, string sizesString, char separator)
@@ -35,10 +38,13 @@ namespace Mediatek86.Vue
         }
         public void actualiserDataGridView()
         {
-            // Utilise la méthode pour charger les données dans la DataGridView
-            unPersonnel.PersonnelGridData(personnelGrid);
+            // Utilise la méthode pour charger les données dans la DataGridView et absence
+            uneAbsence.AbsenceGridData(absenceGrid,personnelGrid);
         }
-
+        public int getIdPersonnelAbsence()
+        {
+            return (int)personnelGrid.SelectedRows[0].Cells["IdPersonnel"].Value;
+        }
         public Accueil()
         {
             InitializeComponent();
@@ -50,6 +56,12 @@ namespace Mediatek86.Vue
             unPersonnel.PersonnelGridData(personnelGrid);
             //redesign des tailles des grid grâce dataGridColumnsResizing
             dataGridColumnsResizing(personnelGrid, "72-80-81-80-168-70", '-');
+
+            // Formate les 2 dateTimepicker pour afficher la date et l'heure
+            dateDebutPick.Format = DateTimePickerFormat.Custom;
+            dateDebutPick.CustomFormat = "dd/MM/yyyy HH:mm";
+            dateFinPick.Format = DateTimePickerFormat.Custom;
+            dateFinPick.CustomFormat = "dd/MM/yyyy HH:mm";
         }
 
         private void supprimerPersonnelBtn_Click(object sender, EventArgs e)
@@ -91,6 +103,59 @@ namespace Mediatek86.Vue
             this.Visible = false;
             // Affiche AjouterPersonnel
             ajouterPersonnelForm.Show();
+        }
+
+        private void gestionnaireAbsBtn_Click(object sender, EventArgs e)
+        {
+            //Change la couleur du texte dans la grid en noir
+            this.absenceGrid.DefaultCellStyle.ForeColor = Color.Black;
+
+            if (personnelGrid.SelectedRows.Count > 0)
+            {
+                absGrpBox.Enabled = true;
+                uneAbsence.AbsenceGridData(absenceGrid, personnelGrid);
+            }
+            else
+            {
+                MessageBox.Show("Veuillez sélectionner un personnel !");
+            }
+        }
+
+        private void supprimerAbsBtn_Click(object sender, EventArgs e)
+        {
+            uneAbsence.DeleteAbsence(absenceGrid, personnelGrid);
+        }
+
+        private void modifierAbsBtn_Click(object sender, EventArgs e)
+        {
+            uneAbsence.ShowAbsenceInfo(absenceGrid, dateDebutPick, dateFinPick, modifierAbsBtn);
+            uneAbsence.SelectMotif(motifAbsLst);
+            updateAbsGrpBox.Enabled = true;
+            absenceGrid.Enabled = false;
+        }
+
+        private void enregistrerAbsBtn_Click(object sender, EventArgs e)
+        {
+            uneAbsence.UpdateAbsence(absenceGrid, personnelGrid, dateDebutPick, dateFinPick, motifAbsLst, modifierAbsBtn, absGrpBox);
+        }
+
+        private void annulerAbsBtn_Click(object sender, EventArgs e)
+        {
+            updateAbsGrpBox.Enabled = false;
+            absenceGrid.Enabled = true;
+            modifierAbsBtn.Enabled = true;
+            motifAbsLst.Items.Clear();
+        }
+
+        private void AjouterAbsBtn_Click(object sender, EventArgs e)
+        {
+            // Créer une instance de AjouterAbsence et définit Accueil comme proprio
+            AjouterAbsence ajouterAbsenceForm = new AjouterAbsence();
+            ajouterAbsenceForm.Owner = this;
+            //Cache la page d'accueil
+            this.Visible = false;
+            // Affiche AjouterPersonnel
+            ajouterAbsenceForm.Show();
         }
     }
 }

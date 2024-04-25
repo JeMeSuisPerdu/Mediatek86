@@ -14,7 +14,7 @@ namespace Mediatek86
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new Accueil());
+            Application.Run(new Login());
         }
     }
 }

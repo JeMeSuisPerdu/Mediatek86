@@ -28,8 +28,10 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
             this.ajouterPersonnelBtn = new System.Windows.Forms.Button();
             this.supprimerPersonnelBtn = new System.Windows.Forms.Button();
             this.gestionnaireAbsBtn = new System.Windows.Forms.Button();
@@ -38,7 +40,6 @@
             this.supprimerAbsBtn = new System.Windows.Forms.Button();
             this.modifierAbsBtn = new System.Windows.Forms.Button();
             this.personnelLbl = new System.Windows.Forms.Label();
-            this.absenceLbl = new System.Windows.Forms.Label();
             this.dateDebutLbl = new System.Windows.Forms.Label();
             this.dateFinLbl = new System.Windows.Forms.Label();
             this.motifAbs = new System.Windows.Forms.Label();
@@ -57,17 +58,19 @@
             this.annulerPersonnelBtn = new System.Windows.Forms.Button();
             this.enregistrerAbsBtn = new System.Windows.Forms.Button();
             this.annulerAbsBtn = new System.Windows.Forms.Button();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.dateDebutPick = new System.Windows.Forms.DateTimePicker();
+            this.dateFinPick = new System.Windows.Forms.DateTimePicker();
             this.dateTimePicker3 = new System.Windows.Forms.DateTimePicker();
             this.personnelGrid = new System.Windows.Forms.DataGridView();
             this.absenceGrid = new System.Windows.Forms.DataGridView();
             this.updatePersonnelGrpBox = new System.Windows.Forms.GroupBox();
             this.updateAbsGrpBox = new System.Windows.Forms.GroupBox();
+            this.absGrpBox = new System.Windows.Forms.GroupBox();
             ((System.ComponentModel.ISupportInitialize)(this.personnelGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.absenceGrid)).BeginInit();
             this.updatePersonnelGrpBox.SuspendLayout();
             this.updateAbsGrpBox.SuspendLayout();
+            this.absGrpBox.SuspendLayout();
             this.SuspendLayout();
             // 
             // ajouterPersonnelBtn
@@ -110,8 +113,9 @@
             this.gestionnaireAbsBtn.Name = "gestionnaireAbsBtn";
             this.gestionnaireAbsBtn.Size = new System.Drawing.Size(148, 33);
             this.gestionnaireAbsBtn.TabIndex = 5;
-            this.gestionnaireAbsBtn.Text = "Gestionnaire d\'absence";
+            this.gestionnaireAbsBtn.Text = "Gérer les absences";
             this.gestionnaireAbsBtn.UseVisualStyleBackColor = false;
+            this.gestionnaireAbsBtn.Click += new System.EventHandler(this.gestionnaireAbsBtn_Click);
             // 
             // modifierPersonnelBtn
             // 
@@ -135,12 +139,13 @@
             this.AjouterAbsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.AjouterAbsBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.AjouterAbsBtn.ForeColor = System.Drawing.Color.White;
-            this.AjouterAbsBtn.Location = new System.Drawing.Point(695, 300);
+            this.AjouterAbsBtn.Location = new System.Drawing.Point(6, 291);
             this.AjouterAbsBtn.Name = "AjouterAbsBtn";
             this.AjouterAbsBtn.Size = new System.Drawing.Size(86, 33);
             this.AjouterAbsBtn.TabIndex = 7;
             this.AjouterAbsBtn.Text = "Ajouter";
             this.AjouterAbsBtn.UseVisualStyleBackColor = false;
+            this.AjouterAbsBtn.Click += new System.EventHandler(this.AjouterAbsBtn_Click);
             // 
             // supprimerAbsBtn
             // 
@@ -149,12 +154,13 @@
             this.supprimerAbsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.supprimerAbsBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.supprimerAbsBtn.ForeColor = System.Drawing.Color.White;
-            this.supprimerAbsBtn.Location = new System.Drawing.Point(803, 300);
+            this.supprimerAbsBtn.Location = new System.Drawing.Point(123, 291);
             this.supprimerAbsBtn.Name = "supprimerAbsBtn";
             this.supprimerAbsBtn.Size = new System.Drawing.Size(80, 33);
             this.supprimerAbsBtn.TabIndex = 8;
             this.supprimerAbsBtn.Text = "Supprimer";
             this.supprimerAbsBtn.UseVisualStyleBackColor = false;
+            this.supprimerAbsBtn.Click += new System.EventHandler(this.supprimerAbsBtn_Click);
             // 
             // modifierAbsBtn
             // 
@@ -163,12 +169,13 @@
             this.modifierAbsBtn.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.modifierAbsBtn.Font = new System.Drawing.Font("Segoe UI Semibold", 9F, System.Drawing.FontStyle.Bold);
             this.modifierAbsBtn.ForeColor = System.Drawing.Color.White;
-            this.modifierAbsBtn.Location = new System.Drawing.Point(906, 300);
+            this.modifierAbsBtn.Location = new System.Drawing.Point(228, 291);
             this.modifierAbsBtn.Name = "modifierAbsBtn";
             this.modifierAbsBtn.Size = new System.Drawing.Size(86, 33);
             this.modifierAbsBtn.TabIndex = 9;
             this.modifierAbsBtn.Text = "Modifier";
             this.modifierAbsBtn.UseVisualStyleBackColor = false;
+            this.modifierAbsBtn.Click += new System.EventHandler(this.modifierAbsBtn_Click);
             // 
             // personnelLbl
             // 
@@ -180,17 +187,6 @@
             this.personnelLbl.Size = new System.Drawing.Size(99, 13);
             this.personnelLbl.TabIndex = 10;
             this.personnelLbl.Text = "Liste de personnel";
-            // 
-            // absenceLbl
-            // 
-            this.absenceLbl.AutoSize = true;
-            this.absenceLbl.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.absenceLbl.ForeColor = System.Drawing.Color.White;
-            this.absenceLbl.Location = new System.Drawing.Point(692, 9);
-            this.absenceLbl.Name = "absenceLbl";
-            this.absenceLbl.Size = new System.Drawing.Size(84, 13);
-            this.absenceLbl.TabIndex = 11;
-            this.absenceLbl.Text = "Liste d\'absence";
             // 
             // dateDebutLbl
             // 
@@ -367,6 +363,7 @@
             this.enregistrerAbsBtn.TabIndex = 30;
             this.enregistrerAbsBtn.Text = "Enregistrer";
             this.enregistrerAbsBtn.UseVisualStyleBackColor = false;
+            this.enregistrerAbsBtn.Click += new System.EventHandler(this.enregistrerAbsBtn_Click);
             // 
             // annulerAbsBtn
             // 
@@ -381,22 +378,24 @@
             this.annulerAbsBtn.TabIndex = 31;
             this.annulerAbsBtn.Text = "Annuler";
             this.annulerAbsBtn.UseVisualStyleBackColor = false;
+            this.annulerAbsBtn.Click += new System.EventHandler(this.annulerAbsBtn_Click);
             // 
-            // dateTimePicker1
+            // dateDebutPick
             // 
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker1.Location = new System.Drawing.Point(123, 54);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(200, 22);
-            this.dateTimePicker1.TabIndex = 32;
+            this.dateDebutPick.Format = System.Windows.Forms.DateTimePickerFormat.Custom;
+            this.dateDebutPick.Location = new System.Drawing.Point(124, 55);
+            this.dateDebutPick.MinDate = new System.DateTime(1980, 12, 31, 0, 0, 0, 0);
+            this.dateDebutPick.Name = "dateDebutPick";
+            this.dateDebutPick.Size = new System.Drawing.Size(200, 22);
+            this.dateDebutPick.TabIndex = 32;
             // 
-            // dateTimePicker2
+            // dateFinPick
             // 
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Short;
-            this.dateTimePicker2.Location = new System.Drawing.Point(125, 139);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(198, 22);
-            this.dateTimePicker2.TabIndex = 33;
+            this.dateFinPick.Format = System.Windows.Forms.DateTimePickerFormat.Short;
+            this.dateFinPick.Location = new System.Drawing.Point(125, 139);
+            this.dateFinPick.Name = "dateFinPick";
+            this.dateFinPick.Size = new System.Drawing.Size(198, 22);
+            this.dateFinPick.TabIndex = 33;
             // 
             // dateTimePicker3
             // 
@@ -408,24 +407,24 @@
             // personnelGrid
             // 
             this.personnelGrid.BackgroundColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.InfoText;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.personnelGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.InfoText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.personnelGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.personnelGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.personnelGrid.Cursor = System.Windows.Forms.Cursors.PanNW;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.RoyalBlue;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.personnelGrid.DefaultCellStyle = dataGridViewCellStyle6;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.RoyalBlue;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.personnelGrid.DefaultCellStyle = dataGridViewCellStyle2;
             this.personnelGrid.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.personnelGrid.GridColor = System.Drawing.SystemColors.Window;
             this.personnelGrid.Location = new System.Drawing.Point(29, 27);
@@ -439,11 +438,30 @@
             // 
             // absenceGrid
             // 
-            this.absenceGrid.BackgroundColor = System.Drawing.Color.Snow;
+            this.absenceGrid.BackgroundColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle3.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.SystemColors.Desktop;
+            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.absenceGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle3;
             this.absenceGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.absenceGrid.Cursor = System.Windows.Forms.Cursors.PanNW;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.BottomCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(224)))), ((int)(((byte)(224)))), ((int)(((byte)(224)))));
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold);
+            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Snow;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.Color.DarkCyan;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.absenceGrid.DefaultCellStyle = dataGridViewCellStyle4;
             this.absenceGrid.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.absenceGrid.Location = new System.Drawing.Point(695, 27);
+            this.absenceGrid.GridColor = System.Drawing.SystemColors.Window;
+            this.absenceGrid.Location = new System.Drawing.Point(6, 18);
             this.absenceGrid.Name = "absenceGrid";
+            this.absenceGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
             this.absenceGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.absenceGrid.Size = new System.Drawing.Size(587, 253);
             this.absenceGrid.TabIndex = 36;
@@ -474,22 +492,40 @@
             // 
             // updateAbsGrpBox
             // 
-            this.updateAbsGrpBox.Controls.Add(this.dateTimePicker2);
-            this.updateAbsGrpBox.Controls.Add(this.dateTimePicker1);
+            this.updateAbsGrpBox.Controls.Add(this.dateFinPick);
+            this.updateAbsGrpBox.Controls.Add(this.dateDebutPick);
             this.updateAbsGrpBox.Controls.Add(this.annulerAbsBtn);
             this.updateAbsGrpBox.Controls.Add(this.enregistrerAbsBtn);
             this.updateAbsGrpBox.Controls.Add(this.motifAbsLst);
             this.updateAbsGrpBox.Controls.Add(this.motifAbs);
             this.updateAbsGrpBox.Controls.Add(this.dateFinLbl);
             this.updateAbsGrpBox.Controls.Add(this.dateDebutLbl);
+            this.updateAbsGrpBox.Enabled = false;
             this.updateAbsGrpBox.Font = new System.Drawing.Font("Segoe UI", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.updateAbsGrpBox.ForeColor = System.Drawing.Color.Snow;
             this.updateAbsGrpBox.Location = new System.Drawing.Point(695, 381);
             this.updateAbsGrpBox.Name = "updateAbsGrpBox";
-            this.updateAbsGrpBox.Size = new System.Drawing.Size(587, 276);
+            this.updateAbsGrpBox.Size = new System.Drawing.Size(599, 276);
             this.updateAbsGrpBox.TabIndex = 38;
             this.updateAbsGrpBox.TabStop = false;
             this.updateAbsGrpBox.Text = "Modifier une absence";
+            // 
+            // absGrpBox
+            // 
+            this.absGrpBox.Controls.Add(this.absenceGrid);
+            this.absGrpBox.Controls.Add(this.modifierAbsBtn);
+            this.absGrpBox.Controls.Add(this.supprimerAbsBtn);
+            this.absGrpBox.Controls.Add(this.AjouterAbsBtn);
+            this.absGrpBox.Enabled = false;
+            this.absGrpBox.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.absGrpBox.Font = new System.Drawing.Font("Segoe UI Semibold", 8.25F, System.Drawing.FontStyle.Bold);
+            this.absGrpBox.ForeColor = System.Drawing.Color.Snow;
+            this.absGrpBox.Location = new System.Drawing.Point(695, 9);
+            this.absGrpBox.Name = "absGrpBox";
+            this.absGrpBox.Size = new System.Drawing.Size(599, 342);
+            this.absGrpBox.TabIndex = 39;
+            this.absGrpBox.TabStop = false;
+            this.absGrpBox.Text = "Liste d\'absences";
             // 
             // Accueil
             // 
@@ -497,16 +533,12 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(87)))), ((int)(((byte)(78)))), ((int)(((byte)(146)))));
             this.ClientSize = new System.Drawing.Size(1310, 683);
+            this.Controls.Add(this.absGrpBox);
             this.Controls.Add(this.updateAbsGrpBox);
             this.Controls.Add(this.updatePersonnelGrpBox);
-            this.Controls.Add(this.absenceGrid);
             this.Controls.Add(this.personnelGrid);
             this.Controls.Add(this.dateTimePicker3);
-            this.Controls.Add(this.absenceLbl);
             this.Controls.Add(this.personnelLbl);
-            this.Controls.Add(this.modifierAbsBtn);
-            this.Controls.Add(this.supprimerAbsBtn);
-            this.Controls.Add(this.AjouterAbsBtn);
             this.Controls.Add(this.modifierPersonnelBtn);
             this.Controls.Add(this.gestionnaireAbsBtn);
             this.Controls.Add(this.supprimerPersonnelBtn);
@@ -521,6 +553,7 @@
             this.updatePersonnelGrpBox.PerformLayout();
             this.updateAbsGrpBox.ResumeLayout(false);
             this.updateAbsGrpBox.PerformLayout();
+            this.absGrpBox.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -535,7 +568,6 @@
         private System.Windows.Forms.Button supprimerAbsBtn;
         private System.Windows.Forms.Button modifierAbsBtn;
         private System.Windows.Forms.Label personnelLbl;
-        private System.Windows.Forms.Label absenceLbl;
         private System.Windows.Forms.Label dateDebutLbl;
         private System.Windows.Forms.Label dateFinLbl;
         private System.Windows.Forms.Label motifAbs;
@@ -554,12 +586,13 @@
         private System.Windows.Forms.Button annulerPersonnelBtn;
         private System.Windows.Forms.Button enregistrerAbsBtn;
         private System.Windows.Forms.Button annulerAbsBtn;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.DateTimePicker dateDebutPick;
+        private System.Windows.Forms.DateTimePicker dateFinPick;
         private System.Windows.Forms.DateTimePicker dateTimePicker3;
         private System.Windows.Forms.DataGridView personnelGrid;
         private System.Windows.Forms.DataGridView absenceGrid;
         private System.Windows.Forms.GroupBox updatePersonnelGrpBox;
         private System.Windows.Forms.GroupBox updateAbsGrpBox;
+        private System.Windows.Forms.GroupBox absGrpBox;
     }
 }

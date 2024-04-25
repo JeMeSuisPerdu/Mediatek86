@@ -1,6 +1,5 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Drawing;
 using System.Windows.Forms;
 using Mediatek86.dal;
 using Mediatek86.modele;
@@ -12,6 +11,7 @@ namespace Mediatek86.controller
         //instance de la classe Access
         private Access access = Access.GetInstance();
 
+        //Methode qui charge les données dans la dataGridView
         public void PersonnelGridData(DataGridView dataPersonnelGridName)
         {
             if(access.Manager != null)
@@ -50,6 +50,7 @@ namespace Mediatek86.controller
             }
         }
 
+        //Methodes CRUD sur un personnel
         public void DeletePersonnel(DataGridView dataPersonnelGridName)
         {
             if(access.Manager != null && dataPersonnelGridName.SelectedRows.Count > 0)
@@ -86,7 +87,6 @@ namespace Mediatek86.controller
                 MessageBox.Show("Aucun personnel sélectionné pour la suppression.");
             }
         }
-
         public void ShowPersonnelInfo(DataGridView dataPersonnelGridName, TextBox nomPersonnelTxtbox, TextBox prenomPersonnelTxtbox, TextBox telPersonnelTxtbox, TextBox emailPersonnelTxtbox, Button modifierBtn)
         {
 
@@ -132,7 +132,6 @@ namespace Mediatek86.controller
                     string nomService = Convert.ToString(columnTable[1]);
                     //On ajoute à la liste un objet KeyValuePair qui associe IdService à idService...
                     listeService.Items.Add(new KeyValuePair<int, string>(idService, nomService));
-
                 }
             }
             catch (Exception ex)
