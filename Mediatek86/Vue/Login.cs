@@ -1,5 +1,4 @@
-﻿using Mediatek86.dal;
-using Mediatek86.controller;
+﻿using Mediatek86.controller;
 using System;
 using System.Drawing;
 using Mediatek86.Vue;
@@ -8,15 +7,26 @@ using System.Windows.Forms;
 
 namespace Mediatek86
 {
+    /// <summary>
+    /// Classe login heritant de Form
+    /// </summary>
     public partial class Login : Form
     {
+        /// <summary>
+        /// Variables pour drag le formulaire sans les bordures de base
+        /// </summary>
         private bool dragging = false;
         private Point dragCursorPoint;
         private Point dragFormPoint;
 
-        //Instance du controller qui gère l'authentification
+        /// <summary>
+        /// Instance du controller qui gère l'authentification
+        /// </summary>
         FormAuthController formAuthController = new FormAuthController();
 
+        /// <summary>
+        /// Classe qui initialise le form de login
+        /// </summary>
         public Login()
         {
             InitializeComponent();

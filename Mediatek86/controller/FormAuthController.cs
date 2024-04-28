@@ -3,9 +3,22 @@ using System.Collections.Generic;
 using Mediatek86.dal;
 namespace Mediatek86.controller
 {
+    /// <summary>
+    /// Classe controller qui gère la logique d'authentification
+    /// </summary>
     public class FormAuthController
     {
+        /// <summary>
+        /// Instance de la classe Access pour la connexion à la bdd
+        /// </summary>
         Access access = Access.GetInstance();
+
+        /// <summary>
+        /// Vérifie les informations d'identifications
+        /// </summary>
+        /// <param name="username">nom d'utilisateur du responsable</param>
+        /// <param name="password">mdp du responsable</param>
+        /// <returns></returns>
         public bool CheckCredentials(string username, string password)
         {
             if(access.Manager != null)

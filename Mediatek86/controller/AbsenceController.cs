@@ -6,11 +6,21 @@ using Mediatek86.modele;
 
 namespace Mediatek86.controller
 {
+    /// <summary>
+    /// Classe qui permet de gérer la logique métier et de controle pour les absences
+    /// </summary>
     class AbsenceController
     {
+        /// <summary>
+        /// Instance de la classe Access pour vérifier la connexion à la BDD
+        /// </summary>
          private Access access = Access.GetInstance();
 
-        //Methodes CRUD sur une absence
+        /// <summary>
+        /// Methode qui charge la dataGridVue des absences avec les données de la bdd
+        /// </summary>
+        /// <param name="dataAbsenceGridName">dataGridView des absences</param>
+        /// <param name="personnelGridName">dataGridView du personnel</param>
         public void AbsenceGridData(DataGridView dataAbsenceGridName, DataGridView personnelGridName)
         {
             if (access.Manager != null)
@@ -53,6 +63,12 @@ namespace Mediatek86.controller
                 Console.WriteLine("La connexion à la base de données a échoué !");
             }
         }
+
+        /// <summary>
+        /// Methode CRUD pour supprimer une absence dans la BDD + la dataGridView 
+        /// </summary>
+        /// <param name="dataAbsenceGridName">dataGridView des absences</param>
+        /// <param name="personnelGridName">dataGridView du personnel</param>
         public void DeleteAbsence(DataGridView dataAbsenceGridName, DataGridView personnelGridName)
         {
             if (access.Manager != null && dataAbsenceGridName.SelectedRows.Count > 0)
@@ -91,6 +107,14 @@ namespace Mediatek86.controller
                 MessageBox.Show("Aucune absence sélectionnée pour la suppression.");
             }
         }
+
+        /// <summary>
+        /// Methode qui permet d'afficher des données (dans un form...)
+        /// </summary>
+        /// <param name="dataAbsenceGridName">dataGridView des absences</param>
+        /// <param name="dateDebutActuelle">date de début de l'absence avant modification (type DateTimePicker)</param>
+        /// <param name="dateFinActuelle">date de fin de l'absence avant modification (type DateTimePicker)</param>
+        /// <param name="modifierBtn">le bouton modifier</param>
         public void ShowAbsenceInfo(DataGridView dataAbsenceGridName, DateTimePicker dateDebutActuelle, DateTimePicker dateFinActuelle, Button modifierBtn)
         {
 
@@ -113,11 +137,12 @@ namespace Mediatek86.controller
                     MessageBox.Show("Erreur lors de la sélection des données ! " + ex.Message);
                 }
             }
-            else
-            {
-                MessageBox.Show("Veuillez sélectionner au moins une absence à modifier ! ");
-            }
         }
+
+        /// <summary>
+        /// Methode qui permet d'initialiser la liste des Motifs
+        /// </summary>
+        /// <param name="listeMotif"></param>
         public void SelectMotif(ListBox listeMotif)
         {
             string req = "SELECT idmotif, libelle FROM motif";
@@ -138,6 +163,17 @@ namespace Mediatek86.controller
                 MessageBox.Show("Erreur de récupération des services : " + ex.Message);
             }
         }
+
+        /// <summary>
+        /// Methode CRUD pour mettre à jour une absence dans la BDD + la dataGridView. Et gère la visibilité de la groupBox + bouton modifier.
+        /// </summary>
+        /// <param name="dataAbsenceGridName">dataGridView des absences</param>
+        /// <param name="dataPersonnelGridName">dataGridView du personnel</param>
+        /// <param name="dateDebut">date de début d'une absence après modification</param>
+        /// <param name="dateFin">date de fin d'une absence après modification</param>
+        /// <param name="listeMotif">liste des motifs pour une absence</param>
+        /// <param name="modifierBtn">le bouton modifier</param>
+        /// <param name="groupeBox">ensemble des élements graphiques faisant partie du groupe des absences</param>
         public void UpdateAbsence(DataGridView dataAbsenceGridName, DataGridView dataPersonnelGridName, DateTimePicker dateDebut, DateTimePicker dateFin, ListBox listeMotif, Button modifierBtn, GroupBox groupeBox)
         {
             try
@@ -211,6 +247,14 @@ namespace Mediatek86.controller
             }
 
         }
+
+        /// <summary>
+        /// Methode CRUD qui ajoute une absence pour un personnel dans la grid et dans la BDD
+        /// </summary>
+        /// <param name="idPersonnel">identifiant d'un personnel</param>
+        /// <param name="dateDebut">date de début sélectionnée par l'utilisateur</param>
+        /// <param name="dateFin">date de fin sélectionnée par l'utilisateur</param>
+        /// <param name="listeMotif"></param>
         public void AddAbsence(int idPersonnel,DateTimePicker dateDebut, DateTimePicker dateFin, ListBox listeMotif)
         {
             try

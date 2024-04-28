@@ -5,12 +5,26 @@ using Mediatek86.controller;
 
 namespace Mediatek86.Vue
 {
+    /// <summary>
+    /// Classe AjouterAbsence heritant de Form
+    /// </summary>
     public partial class AjouterAbsence : Form
     {
+        /// <summary>
+        /// Permet le mouvement du formulaire meme sans border style. (Aide de stackoverflow pour le faire)
+        /// </summary>
         private bool dragging = false;
         private Point dragCursorPoint;
         private Point dragFormPoint;
+
+        /// <summary>
+        /// Instance d'AbscenceController
+        /// </summary>
         readonly AbsenceController uneAbsence = new AbsenceController();
+
+        /// <summary>
+        /// Classe qui initialise le form d'ajout d'absence
+        /// </summary>
         public AjouterAbsence()
         {
             InitializeComponent();

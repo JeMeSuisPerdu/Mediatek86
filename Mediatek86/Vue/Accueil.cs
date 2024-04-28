@@ -6,13 +6,27 @@ using Mediatek86.controller;
 
 namespace Mediatek86.Vue
 {
+    /// <summary>
+    /// Classe Accueil heritant de Form
+    /// </summary>
     public partial class Accueil : Form
     {
-        //instance de PersonnelController
+        /// <summary>
+        /// instance de PersonnelController pour utiliser les methodes CRUD définis dans le controller
+        /// </summary>
         readonly PersonnelController unPersonnel = new PersonnelController();
+
+        /// <summary>
+        /// instance de AbsenceController pour utiliser les methodes CRUD définis dans le controller
+        /// </summary>
         readonly AbsenceController uneAbsence = new AbsenceController();
 
-        //Petite methode pour redefinir la width des column...Ouais...j'ai vraiment fais ca...
+        /// <summary>
+        /// Petite methode pour redefinir la width des column...aide de chat Gpt 
+        /// </summary>
+        /// <param name="gridName"></param>
+        /// <param name="sizesString"></param>
+        /// <param name="separator"></param>
         public void dataGridColumnsResizing(DataGridView gridName, string sizesString, char separator)
         {
             // sépare la chaîne des tailles en utilisant un séparateur 
@@ -36,15 +50,28 @@ namespace Mediatek86.Vue
                 gridName.Columns[i].Width = size;
             }
         }
+
+        /// <summary>
+        /// Methode qui permet d'actualiser les datagridView du personnel et des absences
+        /// </summary>
         public void actualiserDataGridView()
         {
             // Utilise la méthode pour charger les données dans la DataGridView et absence
             uneAbsence.AbsenceGridData(absenceGrid,personnelGrid);
         }
+
+        /// <summary>
+        /// Getter qui récupère l'id du personnel dans la dataGridView personnel
+        /// </summary>
+        /// <returns>l'id du Personnel sous format int</returns>
         public int getIdPersonnelAbsence()
         {
             return (int)personnelGrid.SelectedRows[0].Cells["IdPersonnel"].Value;
         }
+
+        /// <summary>
+        /// Classe qui initialise le form d'accueil
+        /// </summary>
         public Accueil()
         {
             InitializeComponent();
@@ -128,10 +155,20 @@ namespace Mediatek86.Vue
 
         private void modifierAbsBtn_Click(object sender, EventArgs e)
         {
-            uneAbsence.ShowAbsenceInfo(absenceGrid, dateDebutPick, dateFinPick, modifierAbsBtn);
-            uneAbsence.SelectMotif(motifAbsLst);
-            updateAbsGrpBox.Enabled = true;
-            absenceGrid.Enabled = false;
+            if(absenceGrid.SelectedRows.Count == 0)
+            {
+                MessageBox.Show("Veuillez sélectionner au moins une absence à modifier ! ");
+                absenceGrid.Enabled = false;
+                updateAbsGrpBox.Enabled = false;
+            }
+            else
+            {
+                uneAbsence.ShowAbsenceInfo(absenceGrid, dateDebutPick, dateFinPick, modifierAbsBtn);
+                uneAbsence.SelectMotif(motifAbsLst);
+                updateAbsGrpBox.Enabled = true;
+                absenceGrid.Enabled = false;
+            }
+
         }
 
         private void enregistrerAbsBtn_Click(object sender, EventArgs e)

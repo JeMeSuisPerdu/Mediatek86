@@ -1,5 +1,4 @@
-﻿using Mediatek86.Vue;
-using System;
+﻿using System;
 using System.Windows.Forms;
 
 namespace Mediatek86

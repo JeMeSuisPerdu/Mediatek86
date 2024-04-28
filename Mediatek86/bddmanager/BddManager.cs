@@ -4,6 +4,9 @@ using MySql.Data.MySqlClient;
 
 namespace Mediatek86.bddmanager
 {
+    /// <summary>
+    /// Classe de gestion de connexion à la base de donnée
+    /// </summary>
     public class BddManager
     {
         /// <summary>

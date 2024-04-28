@@ -6,12 +6,20 @@ using Mediatek86.modele;
 
 namespace Mediatek86.controller
 {
+    /// <summary>
+    /// Classe controller du personnel (contient les methodes CRUD etc)
+    /// </summary>
     public class PersonnelController
     {
-        //instance de la classe Access
+        /// <summary>
+        /// Instance de la classe Access pour la connexion à la bdd
+        /// </summary>
         private Access access = Access.GetInstance();
 
-        //Methode qui charge les données dans la dataGridView
+        /// <summary>
+        /// Methode qui charge les données du personnel dans la dataGridView
+        /// </summary>
+        /// <param name="dataPersonnelGridName">dataGridView du personnel</param>
         public void PersonnelGridData(DataGridView dataPersonnelGridName)
         {
             if(access.Manager != null)
@@ -50,7 +58,10 @@ namespace Mediatek86.controller
             }
         }
 
-        //Methodes CRUD sur un personnel
+        /// <summary>
+        /// Methode CRUD pour supprimer un personnel dans la grid et dans la BDD
+        /// </summary>
+        /// <param name="dataPersonnelGridName">dataGridView du personnel</param>
         public void DeletePersonnel(DataGridView dataPersonnelGridName)
         {
             if(access.Manager != null && dataPersonnelGridName.SelectedRows.Count > 0)
@@ -87,6 +98,16 @@ namespace Mediatek86.controller
                 MessageBox.Show("Aucun personnel sélectionné pour la suppression.");
             }
         }
+
+        /// <summary>
+        /// Methode CRUD pour afficher les infos du personnel dans un form...
+        /// </summary>
+        /// <param name="dataPersonnelGridName">dataGridView du personnel</param>
+        /// <param name="nomPersonnelTxtbox">Zone de texte pour saisir le nom du personnel</param>
+        /// <param name="prenomPersonnelTxtbox">Zone de texte pour saisir le prenom du personnell</param>
+        /// <param name="telPersonnelTxtbox">Zone de texte pour saisir le numero de tel du personnel</param>
+        /// <param name="emailPersonnelTxtbox">Zone de texte pour saisir l'email du personnel</param>
+        /// <param name="modifierBtn">bouton modifier</param>
         public void ShowPersonnelInfo(DataGridView dataPersonnelGridName, TextBox nomPersonnelTxtbox, TextBox prenomPersonnelTxtbox, TextBox telPersonnelTxtbox, TextBox emailPersonnelTxtbox, Button modifierBtn)
         {
 
@@ -119,6 +140,11 @@ namespace Mediatek86.controller
                 MessageBox.Show("Veuillez sélectionner au moins un personnel à modifier ! ");
             }
         }
+
+        /// <summary>
+        /// Methode qui permet l'initialisation de la liste des services pour un personnel
+        /// </summary>
+        /// <param name="listeService">liste des services pour un personnel</param>
         public void SelectService(ListBox listeService)
         {
             string req = "SELECT idservice, nom FROM service";
@@ -139,6 +165,18 @@ namespace Mediatek86.controller
                 MessageBox.Show("Erreur de récupération des services : " + ex.Message);
             }
         }
+
+        /// <summary>
+        /// Methode CRUD de mise à jour des infos d'un personnel dans la grid et dans la BDD
+        /// </summary>
+        /// <param name="dataPersonnelGridName">dataGridView du personnel</param>
+        /// <param name="nomPersonnelTxtbox">Zone de texte pour saisir le nom du personnel</param>
+        /// <param name="prenomPersonnelTxtbox">Zone de texte pour saisir le prenom du personnel</param>
+        /// <param name="telPersonnelTxtbox">Zone de texte pour saisir le numero de tel du personnel</param>
+        /// <param name="emailPersonnelTxtbox">Zone de texte pour saisir l'email du personnel</param>
+        /// <param name="listeService">Liste des services pour un personnel</param>
+        /// <param name="modifierBtn">bouton modifier</param>
+        /// <param name="groupeBox">Ensembles des élements graphique permettant la modification d'un personnel</param>
         public void UpdatePersonnel(DataGridView dataPersonnelGridName, TextBox nomPersonnelTxtbox, TextBox prenomPersonnelTxtbox, TextBox telPersonnelTxtbox, TextBox emailPersonnelTxtbox, ListBox listeService, Button modifierBtn, GroupBox groupeBox)
         {
             try
@@ -203,6 +241,15 @@ namespace Mediatek86.controller
             }
     
         }
+
+        /// <summary>
+        /// Methode CRUD d'ajout d'un personnel dans la grid et dans la BDD
+        /// </summary>
+        /// <param name="nomPersonnelTxtbox">Zone de texte pour saisir le nom du personnel</param>
+        /// <param name="prenomPersonnelTxtbox">Zone de texte pour saisir le prenom du personnel</param>
+        /// <param name="telPersonnelTxtbox">Zone de texte pour saisir le numero de tel du personnel</param>
+        /// <param name="emailPersonnelTxtbox">Zone de texte pour saisir l'email du personnel</param>
+        /// <param name="listeService">Liste des services pour un personnel</param>
         public void AddPersonnel(TextBox nomPersonnelTxtbox, TextBox prenomPersonnelTxtbox, TextBox telPersonnelTxtbox, TextBox emailPersonnelTxtbox, ListBox listeService) 
         {
             try

@@ -5,6 +5,9 @@ using System;
 
 namespace Mediatek86.dal
 {
+    /// <summary>
+    /// Classe qui permet la connexion à la BDD en utilisant un getter de BddManager
+    /// </summary>
     public class Access
     {
         /// <summary>

@@ -2,17 +2,29 @@
 using System.Drawing;
 using System.Windows.Forms;
 using Mediatek86.controller;
-using Mediatek86.Vue;
 
 namespace Mediatek86.Vue
 {
+    /// <summary>
+    /// Classe AjouterPersonnel heritant de Form
+    /// </summary>
     public partial class AjouterPersonnel : Form
     {
+        /// <summary>
+        /// Permet de drag le form sans les bordure de base.
+        /// </summary>
         private bool dragging = false;
         private Point dragCursorPoint;
         private Point dragFormPoint;
+
+        /// <summary>
+        /// Instance de PersonnelController
+        /// </summary>
         readonly PersonnelController unPersonnel = new PersonnelController();
-        
+
+        /// <summary>
+        /// Classe qui initialise le form d'ajout de personnel
+        /// </summary>
         public AjouterPersonnel()
         {
             InitializeComponent();
