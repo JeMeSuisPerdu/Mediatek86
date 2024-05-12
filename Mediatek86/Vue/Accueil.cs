@@ -58,6 +58,7 @@ namespace Mediatek86.Vue
         {
             // Utilise la méthode pour charger les données dans la DataGridView et absence
             uneAbsence.AbsenceGridData(absenceGrid,personnelGrid);
+            unPersonnel.PersonnelGridData(personnelGrid);
         }
 
         /// <summary>
@@ -173,7 +174,7 @@ namespace Mediatek86.Vue
 
         private void enregistrerAbsBtn_Click(object sender, EventArgs e)
         {
-            uneAbsence.UpdateAbsence(absenceGrid, personnelGrid, dateDebutPick, dateFinPick, motifAbsLst, modifierAbsBtn, absGrpBox);
+            uneAbsence.UpdateAbsence(absenceGrid, personnelGrid, dateDebutPick, dateFinPick, motifAbsLst, modifierAbsBtn, updateAbsGrpBox);
         }
 
         private void annulerAbsBtn_Click(object sender, EventArgs e)

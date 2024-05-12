@@ -61,9 +61,10 @@ namespace Mediatek86.Vue
             DialogResult response = MessageBox.Show("Voulez vous vraiment ajouter ce personnel ?", "Confirmation ajout d'un personnel", MessageBoxButtons.OKCancel);
             if(response == DialogResult.OK)
             {
-                unPersonnel.AddPersonnel(nomPersonnelTxt, prenomPersonnelTxt, telPersonnelTxt, emailPersonnelTxt, servicePersonnelLst);
+     
                 //Créer une instance d'accueil qui est la page principal
                 Accueil accueil = (Accueil)this.Owner;
+                unPersonnel.AddPersonnel(nomPersonnelTxt, prenomPersonnelTxt, telPersonnelTxt, emailPersonnelTxt, servicePersonnelLst);
                 //Actualise la grid dans accueil
                 accueil.actualiserDataGridView();
                 //Rend la page d'accueil visible
