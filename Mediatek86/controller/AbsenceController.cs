@@ -278,6 +278,13 @@ namespace Mediatek86.controller
                         {"@IdMotif", idMotif },
                         {"@IdPersonnel", idPersonnel }
                     };
+
+                    // Vérification si la date de fin est antérieure à la date de début
+                    if (dateFinAjout < dateDebutAjout)
+                    {
+                        MessageBox.Show("La date de fin ne peut pas être antérieure à la date de début.");
+                        return;
+                    }
                     //Execution de la requête
                     access.Manager.ReqUpdate(req, parameters);
                    
